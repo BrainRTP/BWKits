@@ -1,0 +1,166 @@
+#╭━━╮╱╭╮╭╮╭╮╭╮╭━╮╭━━╮╭━━━━╮╱╱╱╱╱╭╮╱╭━━━╮
+#┃╭╮┃╱┃┃┃┃┃┃┃┃┃╭╯╰┫┣╯┃╭╮╭╮┃╱╱╱╱╭╯┃╱┃╭━╮┃
+#┃╰╯╰╮┃┃┃┃┃┃┃╰╯╯╱╱┃┃╱╰╯┃┃╰╯╭╮╭╮╰╮┃╱┃┃┃┃┃
+#┃╭━╮┃┃╰╯╰╯┃┃╭╮┃╱╱┃┃╱╱╱┃┃╱╱┃╰╯┃╱┃┃╱┃┃┃┃┃
+#┃╰━╯┃╰╮╭╮╭╯┃┃┃╰╮╭┫┣╮╱╱┃┃╱╱╰╮╭╯╭╯╰┳┫╰━╯┃
+#╰━━━╯╱╰╯╰╯╱╰╯╰━╯╰━━╯╱╱╰╯╱╱╱╰╯╱╰━━┻┻━━━╯
+#
+#======= BWkit by BrainRTP ======#
+# /bws - Shop
+# /bwk - Kit Menu
+# /bwc - Clear permissoin
+# /bwr - Reload config.yml
+# Permissions:
+# bw.kit.<kit> - Allowed kit
+# bw.buykit.<kit> - Already boght kit
+# bw.buykit.d_<kit> - Accept to buy donation kit
+#=================================#
+#===== Maps =====#
+maps:
+  - Church
+  - Pirate
+  - Tipis
+  - Pilz
+  - China
+#===== Kit setings ======#
+warrior:
+  name: "§cWarrior"
+  lore:
+    - "§7This class made for aggressive gameplay and"
+    - "§7 for annihilation your enemies!"
+    - " "
+    - "§7Kit contains:"
+    - "§e> §fIron Sword §5[§dKnockback I§5]"
+    - " "
+  cost: 3000
+
+archer:
+  name: "§eArcher"
+  lore:
+    - "§7Your bow - fear of your enemies! Just aim and..."
+    - " "
+    - "§7Kit contains:"
+    - "§e> §fBow"
+    - "§e> §fArrow §eх32"
+    - " "
+  cost: 7000
+
+miner:
+  name: "§6Miner"
+  lore:
+    - "§7Co-op with Teleporter and your enemies"
+    - "§7won't have chances to win!"
+    - " "
+    - "§7Kit contains:"
+    - "§e> §fIron Pickaxe §5[§dEfficiency I§5]"
+    - " "
+  cost: 2000
+
+builder:
+  name: "§aBuilder"
+  lore:
+    - "§7Get to the middle quickly!"
+    - " "
+    - "§7Kit contains:"
+    - "§e> §fSandstone §eх64"
+    - " "
+  cost: 5000
+
+tank:
+  name: "§fTank"
+  lore:
+    - "§7Absorbs all damage! That allows your mates to"
+    - "§7destroy the enemies."
+    - " "
+    - "§7Kit contains:"
+    - "§e> §fLeather Helmet"
+    - "§e> §fChain Chestplate §5[§dProtection I§5]"
+    - "§e> §fLeather Leggins"
+    - "§e> §fLeather Boots"
+    - " "
+  cost: 3000
+
+defender:
+  name: "§5Defender"
+  lore:
+    - "§7Don't let the enemies to destroy your bed!"
+    - "§7Your team depends on you."
+    - " "
+    - "§7Kit contains:"
+    - "§e> §fLeather Helmet"
+    - "§e> §fLeather Chestplate"
+    - "§e> §fLeather Leggins"
+    - "§e> §fLeather Boots"
+    - "§e> §fWood Sword"
+    - " "
+  cost: 3000
+
+alchemist:
+  name: "§bAlchemist"
+  lore:
+    - "§7With effects that are available to you at the beginning"
+    - "§7you'll help your team get the advantage!"
+    - " "
+    - "§7Kit contains:"
+    - "§e> §fPotion of Power §6[§e50 sec.§6]"
+    - "§e> §fPotion of Speed §6[§e50 sec.§6]"
+    - " "
+  cost: 5000
+
+teleporter:
+  name: "§dTeleporter"
+  lore:
+    - "§7Just pickup your pickaxe and go to destroy your"
+    - "§7enemies! You can surprise them with it!"
+    - " "
+    - "§7Kit contains:"
+    - "§e> §fEnder Pearl §5[§d60 seconds after start of the game§5]"
+    - " "
+  cost: 15000
+
+resources:
+  name: "§eBonus Resources"
+  lore:
+    - "§7In the beginning you can buy what you want and"
+    - "§7start playing without collecting resources!"
+    - " "
+    - "§7Kit contains:"
+    - "§e> §fBronze §ex64"
+    - "§e> §fIron §ex4"
+    - " "
+  cost: 7000
+
+#====== GUI Message =======#
+kitselect_name: "§8Kit Selector"
+kitbuy_name: "§8Kit Shop"
+cost: "§e⛂ Price: "
+pex reset: "§eAll permissions cleared."
+accept: "§aClick to select"
+accept_no: "§7Not Available. Buy in §c/bwshop"
+allow: "§a§nSelected!"
+buy: "§aClick to buy"
+buy_allow: "§aPurchased"
+#====== Chat Message========#
+bedwars: "§e[§6BedWars§e] "
+bwkit: "§7[§3BWkits§7] > "
+kit_give: "§fRecieved kit: "
+not_kit: "§cYou don't have this kit!"
+kit_already_selected_message: "§e[§6BedWars§e] §cKit %s §calredy selected!"
+teleporter_countdown1: "§fKit §eTeleporter §fwill be recieved in §c60 seconds"
+teleporter_countdown2: "§fKit §eTeleporter §fwill be recieved in §c30 seconds"
+teleporter_countdown3: "§fKit §eTeleporter §fwill be recieved in §c10 seconds"
+kit_select_message: "§eSelected kit: "
+not_kit: "§cYou don't have this kit!"
+already_buy: "§e[§6BedWars§e] §cThis kit §f%s §calredy purchased!"
+buy_now: "§e[§6BedWars§e] §ePurchased kit: §f%s"
+not_enought_money: "§cNot enough money!"
+#====== Other message =======#
+command_console: "§cYou need to be a player."
+bronze_name: "§4Bronze"
+iron_name: "§7Iron"
+pex_nope: "§cYou must be "
+vipdon: "§2[§aVIP§2]"
+vipplusdon: "§2[§aVIP§e+§2]"
+platinumdon: "§3[§bPlatinum§3]"
+pex_deny: "§cYou don't have permissions!"
+cfgreload: "§aConfiguration reloaded!"
