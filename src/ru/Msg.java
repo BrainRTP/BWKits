@@ -30,6 +30,33 @@ public class Msg {
     private static int teleporter_cost;
     private static int resources_cost;
 
+    private static String kitselect_name;
+    private static String kitbuy_name;
+    private static String kit_select_message;
+    private static String not_kit;
+    private static String cost;
+    private static String bwkit;
+    private static String command_console;
+    private static String pex_reset;
+    private static String bronze_name;
+    private static String iron_name;
+    private static String teleporter_countdown1;
+    private static String teleporter_countdown2;
+    private static String teleporter_countdown3;
+
+    private static String bedwars;
+    private static String kit_give;
+    private static String not_enought_money;
+    private static String accept;
+    private static String already_buy;
+    private static String buy_now;
+    private static String accept_no;
+    private static String allow;
+    private static String buy;
+    private static String buy_allow;
+    private static String pex_deny;
+    private static String cfgreload;
+
     private static String kit_already_selected_message;
 
     private static Logger log = BWKits.getPlugin().getLogger();
@@ -67,32 +94,32 @@ public class Msg {
 
         kit_already_selected_message = cfile.getString("kit_already_selected_message");
 
-        String kitselect_name = cfile.getString("kitselect_name");
-        String kitbuy_name = cfile.getString("kitbuy_name");
-        String kit_select_message = cfile.getString("kit_select_message");
-        String not_kit = cfile.getString("not_kit");
-        String cost = cfile.getString("cost");
-        String bwkit = cfile.getString("bwkit");
-        String command_console = cfile.getString("command_console");
-        String pex_reset = cfile.getString("pex_reset");
-        String bronze_name = cfile.getString("bronze_name");
-        String iron_name = cfile.getString("iron_name");
-        String teleporter_countdown1 = cfile.getString("teleporter_countdown1");
-        String teleporter_countdown2 = cfile.getString("teleporter_countdown2");
-        String teleporter_countdown3 = cfile.getString("teleporter_countdown3");
+        kitselect_name = cfile.getString("kitselect_name");
+        kitbuy_name = cfile.getString("kitbuy_name");
+        kit_select_message = cfile.getString("kit_select_message");
+        not_kit = cfile.getString("not_kit");
+        cost = cfile.getString("cost");
+        bwkit = cfile.getString("bwkit");
+        command_console = cfile.getString("command_console");
+        pex_reset = cfile.getString("pex_reset");
+        bronze_name = cfile.getString("bronze_name");
+        iron_name = cfile.getString("iron_name");
+        teleporter_countdown1 = cfile.getString("teleporter_countdown1");
+        teleporter_countdown2 = cfile.getString("teleporter_countdown2");
+        teleporter_countdown3 = cfile.getString("teleporter_countdown3");
 
-        String bedwars = cfile.getString("bedwars");
-        String kit_give = cfile.getString("kit_give");
-        String not_enought_money = cfile.getString("not_enought_money");
-        String accept = cfile.getString("accept");
-        String already_buy = cfile.getString("already_buy");
-        String buy_now = cfile.getString("buy_now");
-        String accept_no = cfile.getString("accept_no");
-        String allow = cfile.getString("allow");
-        String buy = cfile.getString("buy");
-        String buy_allow = cfile.getString("buy_allow");
-        String pex_deny = cfile.getString("pex_deny");
-        String cfgreload = cfile.getString("cfgreload");
+        bedwars = cfile.getString("bedwars");
+        kit_give = cfile.getString("kit_give");
+        not_enought_money = cfile.getString("not_enought_money");
+        accept = cfile.getString("accept");
+        already_buy = cfile.getString("already_buy");
+        buy_now = cfile.getString("buy_now");
+        accept_no = cfile.getString("accept_no");
+        allow = cfile.getString("allow");
+        buy = cfile.getString("buy");
+        buy_allow = cfile.getString("buy_allow");
+        pex_deny = cfile.getString("pex_deny");
+        cfgreload = cfile.getString("cfgreload");
         }
     public static String getPex_nope() { return pex_nope; }
     public static String getVipdon() { return vipdon; }
@@ -120,5 +147,31 @@ public class Msg {
     public static int getTeleporterCost() { return teleporter_cost; }
     public static int getResourcesCost() { return resources_cost; }
 
+    public static String getKitselect_name() { return kitselect_name; }
+    public static String getKitbuy_name() { return kitbuy_name; }
+    public static String getKit_select_message() { return kit_select_message; }
+    public static String getNot_kit() { return not_kit; }
+    public static String getCost() { return cost; }
+    public static String getBwkit() { return bwkit; }
+    public static String getCommand_console() { return command_console; }
+    public static String getPex_reset() { return pex_reset; }
+    public static String getBronze_name() { return bronze_name; }
+    public static String getIron_name() { return iron_name; }
+    public static String getTeleporter_countdown1() { return teleporter_countdown1; }
+    public static String getTeleporter_countdown2() { return teleporter_countdown2; }
+    public static String getTeleporter_countdown3() { return teleporter_countdown3; }
     public static String getKit_already_selected_message() { return kit_already_selected_message; }
+
+    public static String getBedwars() { return bedwars; }
+    public static String getKit_give() { return kit_give; }
+    public static String getNot_enought_money() { return not_enought_money; }
+    public static String getAccept() { return accept; }
+    public static String getAlready_buy() { return already_buy; }
+    public static String getBuy_now() { return buy_now; }
+    public static String getAccept_no() { return accept_no; }
+    public static String getAllow() { return allow; }
+    public static String getBuy() { return buy; }
+    public static String getBuy_allow() { return buy_allow; }
+    public static String getPex_deny() { return pex_deny; }
+    public static String getCfgreload() { return cfgreload; }
 }

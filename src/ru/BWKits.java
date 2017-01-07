@@ -79,15 +79,15 @@ public class BWKits extends JavaPlugin implements Listener {
 //    String Msg.getVipplusdon() = this.getConfig().getString("Msg.getVipplusdon()");
 //    String Msg.getPlatinumdon() = this.getConfig().getString("Msg.getPlatinumdon()");
 //
-//    int Msg.getWarriorCost() = this.getConfig().getInt("warrior.cost");
-//    int Msg.getArcherCost() = this.getConfig().getInt("archer.cost");
-//    int Msg.getMinerCost() = this.getConfig().getInt("miner.cost");
-//    int Msg.getBuilderCost() = this.getConfig().getInt("builder.cost");
-//    int Msg.getTankCost() = this.getConfig().getInt("tank.cost");
-//    int Msg.getDefenderCost() = this.getConfig().getInt("defender.cost");
-//    int Msg.getAlchemistCost() = this.getConfig().getInt("alchemist.cost");
-//    int Msg.getTeleporterCost() = this.getConfig().getInt("teleporter.cost");
-//    int Msg.getResourcesCost() = this.getConfig().getInt("resources.cost");
+//    int Msg.getWarriorCost() = this.getConfig().getInt("warrior.Msg.getCost()");
+//    int Msg.getArcherCost() = this.getConfig().getInt("archer.Msg.getCost()");
+//    int Msg.getMinerCost() = this.getConfig().getInt("miner.Msg.getCost()");
+//    int Msg.getBuilderCost() = this.getConfig().getInt("builder.Msg.getCost()");
+//    int Msg.getTankCost() = this.getConfig().getInt("tank.Msg.getCost()");
+//    int Msg.getDefenderCost() = this.getConfig().getInt("defender.Msg.getCost()");
+//    int Msg.getAlchemistCost() = this.getConfig().getInt("alchemist.Msg.getCost()");
+//    int Msg.getTeleporterCost() = this.getConfig().getInt("teleporter.Msg.getCost()");
+//    int Msg.getResourcesCost() = this.getConfig().getInt("resources.Msg.getCost()");
 //
 //    String Msg.getWarriorName() = this.getConfig().getString("warrior.name");
 //    String Msg.getArcherName() = this.getConfig().getString("archer.name");
@@ -99,34 +99,34 @@ public class BWKits extends JavaPlugin implements Listener {
 //    String Msg.getTeleporterName() = this.getConfig().getString("teleporter.name");
 //    String Msg.getResourcesName() = this.getConfig().getString("resources.name");
 
-    String kit_already_selected_message = this.getConfig().getString("kit_already_selected_message");
-
-    String kitselect_name = this.getConfig().getString("kitselect_name");
-    String kitbuy_name = this.getConfig().getString("kitbuy_name");
-    String kit_select_message = this.getConfig().getString("kit_select_message");
-    String not_kit = this.getConfig().getString("not_kit");
-    String cost = this.getConfig().getString("cost");
-    String bwkit = this.getConfig().getString("bwkit");
-    String command_console = this.getConfig().getString("command_console");
-    String pex_reset = this.getConfig().getString("pex_reset");
-    String bronze_name = this.getConfig().getString("bronze_name");
-    String iron_name = this.getConfig().getString("iron_name");
-    String teleporter_countdown1 = this.getConfig().getString("teleporter_countdown1");
-    String teleporter_countdown2 = this.getConfig().getString("teleporter_countdown2");
-    String teleporter_countdown3 = this.getConfig().getString("teleporter_countdown3");
-
-    String bedwars = this.getConfig().getString("bedwars");
-    String kit_give = this.getConfig().getString("kit_give");
-    String not_enought_money = this.getConfig().getString("not_enought_money");
-    String accept = this.getConfig().getString("accept");
-    String already_buy = this.getConfig().getString("already_buy");
-    String buy_now = this.getConfig().getString("buy_now");
-    String accept_no = this.getConfig().getString("accept_no");
-    String allow = this.getConfig().getString("allow");
-    String buy = this.getConfig().getString("buy");
-    String buy_allow = this.getConfig().getString("buy_allow");
-    String pex_deny = this.getConfig().getString("pex_deny");
-    String cfgreload = this.getConfig().getString("cfgreload");
+//    String Msg.getKit_already_selected_message() = this.getConfig().getString("Msg.getKit_already_selected_message()");
+//
+//    String Msg.getKitselect_name() = this.getConfig().getString("Msg.getKitselect_name()");
+//    String Msg.getKitbuy_name() = this.getConfig().getString("Msg.getKitbuy_name()");
+//    String Msg.getKit_select_message() = this.getConfig().getString("Msg.getKit_select_message()");
+//    String Msg.getNot_kit() = this.getConfig().getString("Msg.getNot_kit()");
+//    String Msg.getCost() = this.getConfig().getString("Msg.getCost()");
+//    String Msg.getBwkit() = this.getConfig().getString("Msg.getBwkit()");
+//    String Msg.getCommand_console() = this.getConfig().getString("Msg.getCommand_console()");
+//    String Msg.getPex_reset() = this.getConfig().getString("Msg.getPex_reset()");
+//    String Msg.getBronze_name() = this.getConfig().getString("Msg.getBronze_name()");
+//    String Msg.getIron_name() = this.getConfig().getString("Msg.getIron_name()");
+//    String Msg.getTeleporter_countdown1() = this.getConfig().getString("Msg.getTeleporter_countdown1()");
+//    String Msg.getTeleporter_countdown2() = this.getConfig().getString("Msg.getTeleporter_countdown2()");
+//    String Msg.getTeleporter_countdown3() = this.getConfig().getString("Msg.getTeleporter_countdown3()");
+//
+//    String Msg.getBedwars() = this.getConfig().getString("Msg.getBedwars()");
+//    String Msg.getKit_give() = this.getConfig().getString("Msg.getKit_give()");
+//    String Msg.getNot_enought_money() = this.getConfig().getString("Msg.getNot_enought_money()");
+//    String Msg.getAccept() = this.getConfig().getString("Msg.getAccept()");
+//    String Msg.getAlready_buy() = this.getConfig().getString("Msg.getAlready_buy()");
+//    String Msg.getBuy_now() = this.getConfig().getString("Msg.getBuy_now()");
+//    String Msg.getAccept_no() = this.getConfig().getString("Msg.getAccept_no()");
+//    String Msg.getAllow() = this.getConfig().getString("Msg.getAllow()");
+//    String Msg.getBuy() = this.getConfig().getString("Msg.getBuy()");
+//    String Msg.getBuy_allow() = this.getConfig().getString("Msg.getBuy_allow()");
+//    String Msg.getPex_deny() = this.getConfig().getString("Msg.getPex_deny()");
+//    String Msg.getCfgreload() = this.getConfig().getString("Msg.getCfgreload()");
 
 
     public void openGUI(Player player) { //Гуи выбора класса '/bwk'
@@ -145,7 +145,7 @@ public class BWKits extends JavaPlugin implements Listener {
         DyeColor color = DyeColor.GRAY; //Хз зачем
         byte data = 8; //Для слудующей строки
         byte data_pex = 9;
-        Inventory inv = Bukkit.createInventory(null, 9, kitselect_name); //Создается инвентарь в 9 клеток (1 строка)
+        Inventory inv = Bukkit.createInventory(null, 9, Msg.getKitselect_name()); //Создается инвентарь в 9 клеток (1 строка)
 
         List<String> lores = new ArrayList<String>(); //нужен для lore'а
 // Воин
@@ -157,7 +157,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : warrior_lore){
             lores.add(s);
         }
-        lores.add(accept);
+        lores.add(Msg.getAccept());
         warriorMeta.setLore(lores); //lore применяется к предмету
         warrior.setItemMeta(warriorMeta); //Хз зачем, но нужно.
 
@@ -167,7 +167,7 @@ public class BWKits extends JavaPlugin implements Listener {
 
         lores = new ArrayList<String>();
         warrior_noMeta.setDisplayName(Msg.getWarriorName());
-        lores.add(accept_no);
+        lores.add(Msg.getAccept_no());
         warrior_noMeta.setLore(lores);
         warrior_no.setItemMeta(warrior_noMeta);
 
@@ -181,7 +181,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : warrior_lore){
             lores.add(s);
         }
-        lores.add(allow);
+        lores.add(Msg.getAllow());
         warrior_yesMeta.setLore(lores);
         warrior_yes.setItemMeta(warrior_yesMeta);
 
@@ -197,7 +197,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : archer_lore){
             lores.add(s);
         }
-        lores.add(accept);
+        lores.add(Msg.getAccept());
         archerMeta.setLore(lores);
         archer.setItemMeta(archerMeta);
 
@@ -219,7 +219,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : archer_lore){
             lores.add(s);
         }
-        lores.add(allow);
+        lores.add(Msg.getAllow());
         archer_yesMeta.setLore(lores);
         archer_yes.setItemMeta(archer_yesMeta);
 
@@ -244,7 +244,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : miner_lore){
             lores.add(s);
         }
-        lores.add(accept);
+        lores.add(Msg.getAccept());
         minerMeta.setLore(lores);
         miner.setItemMeta(minerMeta);
 
@@ -253,7 +253,7 @@ public class BWKits extends JavaPlugin implements Listener {
 
         lores = new ArrayList<String>();
         miner_noMeta.setDisplayName(Msg.getMinerName());
-        lores.add(accept_no);
+        lores.add(Msg.getAccept_no());
         miner_noMeta.setLore(lores);
         miner_no.setItemMeta(miner_noMeta);
 
@@ -266,7 +266,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : miner_lore){
             lores.add(s);
         }
-        lores.add(allow);
+        lores.add(Msg.getAllow());
         miner_yesMeta.setLore(lores);
         miner_yes.setItemMeta(miner_yesMeta);
 // Шахтер
@@ -280,7 +280,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : builder_lore){
             lores.add(s);
         }
-        lores.add(accept);
+        lores.add(Msg.getAccept());
         builderMeta.setLore(lores);
         builder.setItemMeta(builderMeta);
 
@@ -289,7 +289,7 @@ public class BWKits extends JavaPlugin implements Listener {
 
         lores = new ArrayList<String>();
         builder_noMeta.setDisplayName(Msg.getBuilderName());
-        lores.add(accept_no);
+        lores.add(Msg.getAccept_no());
         builder_noMeta.setLore(lores);
         builder_no.setItemMeta(builder_noMeta);
 
@@ -302,7 +302,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : builder_lore){
             lores.add(s);
         }
-        lores.add(allow);
+        lores.add(Msg.getAllow());
         builder_yesMeta.setLore(lores);
         builder_yes.setItemMeta(builder_yesMeta);
 // Строитель
@@ -316,7 +316,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : tank_lore){
             lores.add(s);
         }
-        lores.add(accept);
+        lores.add(Msg.getAccept());
         tankMeta.setLore(lores);
         tank.setItemMeta(tankMeta);
 
@@ -325,7 +325,7 @@ public class BWKits extends JavaPlugin implements Listener {
 
         lores = new ArrayList<String>();
         tank_noMeta.setDisplayName(Msg.getTankName());
-        lores.add(accept_no);
+        lores.add(Msg.getAccept_no());
         tank_noMeta.setLore(lores);
         tank_no.setItemMeta(tank_noMeta);
 
@@ -338,7 +338,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : tank_lore){
             lores.add(s);
         }
-        lores.add(allow);
+        lores.add(Msg.getAllow());
         tank_yesMeta.setLore(lores);
         tank_yes.setItemMeta(tank_yesMeta);
 // Танк
@@ -352,7 +352,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : defender_lore){
             lores.add(s);
         }
-        lores.add(accept);
+        lores.add(Msg.getAccept());
         defenderMeta.setLore(lores);
         defender.setItemMeta(defenderMeta);
 
@@ -361,7 +361,7 @@ public class BWKits extends JavaPlugin implements Listener {
 
         lores = new ArrayList<String>();
         defender_noMeta.setDisplayName(Msg.getDefenderName());
-        lores.add(accept_no);
+        lores.add(Msg.getAccept_no());
         defender_noMeta.setLore(lores);
         defender_no.setItemMeta(defender_noMeta);
 
@@ -374,7 +374,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : defender_lore){
             lores.add(s);
         }
-        lores.add(allow);
+        lores.add(Msg.getAllow());
         defender_yesMeta.setLore(lores);
         defender_yes.setItemMeta(defender_yesMeta);
 // Защитник
@@ -388,7 +388,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : alchemist_lore){
             lores.add(s);
         }
-        lores.add(accept);
+        lores.add(Msg.getAccept());
         alchemistMeta.setLore(lores);
         alchemist.setItemMeta(alchemistMeta);
 
@@ -397,7 +397,7 @@ public class BWKits extends JavaPlugin implements Listener {
 
         lores = new ArrayList<String>();
         alchemist_noMeta.setDisplayName(Msg.getAlchemistName());
-        lores.add(accept_no);
+        lores.add(Msg.getAccept_no());
         alchemist_noMeta.setLore(lores);
         alchemist_no.setItemMeta(alchemist_noMeta);
 
@@ -410,7 +410,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : alchemist_lore){
             lores.add(s);
         }
-        lores.add(allow);
+        lores.add(Msg.getAllow());
         alchemist_yesMeta.setLore(lores);
         alchemist_yes.setItemMeta(alchemist_yesMeta);
 
@@ -434,7 +434,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : teleporter_lore){
             lores.add(s);
         }
-        lores.add(accept);
+        lores.add(Msg.getAccept());
         teleporterMeta.setLore(lores);
         teleporter.setItemMeta(teleporterMeta);
 
@@ -443,7 +443,7 @@ public class BWKits extends JavaPlugin implements Listener {
 
         lores = new ArrayList<String>();
         teleporter_noMeta.setDisplayName(Msg.getTeleporterName());
-        lores.add(accept_no);
+        lores.add(Msg.getAccept_no());
         teleporter_noMeta.setLore(lores);
         teleporter_no.setItemMeta(teleporter_noMeta);
 
@@ -456,7 +456,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : teleporter_lore){
             lores.add(s);
         }
-        lores.add(allow);
+        lores.add(Msg.getAllow());
         teleporter_yesMeta.setLore(lores);
         teleporter_yes.setItemMeta(teleporter_yesMeta);
 
@@ -480,7 +480,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : resources_lore){
             lores.add(s);
         }
-        lores.add(accept);
+        lores.add(Msg.getAccept());
         resourcesMeta.setLore(lores);
         resources.setItemMeta(resourcesMeta);
 
@@ -489,7 +489,7 @@ public class BWKits extends JavaPlugin implements Listener {
 
         lores = new ArrayList<String>();
         resources_noMeta.setDisplayName(Msg.getResourcesName());
-        lores.add(accept_no);
+        lores.add(Msg.getAccept_no());
         resources_noMeta.setLore(lores);
         resources_no.setItemMeta(resources_noMeta);
 
@@ -502,7 +502,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : resources_lore){
             lores.add(s);
         }
-        lores.add(allow);
+        lores.add(Msg.getAllow());
         resources_yesMeta.setLore(lores);
         resources_yes.setItemMeta(resources_yesMeta);
 
@@ -634,10 +634,10 @@ public class BWKits extends JavaPlugin implements Listener {
             case IRON_SWORD:
                 if (player.hasPermission("warrior1")) {
                     player.closeInventory();
-                    player.sendMessage(String.format(kit_already_selected_message, Msg.getWarriorName()));
+                    player.sendMessage(String.format(Msg.getKit_already_selected_message(), Msg.getWarriorName()));
                 }
                 else {
-                    player.sendMessage(bedwars + kit_select_message + Msg.getWarriorName());
+                    player.sendMessage(Msg.getBedwars() + Msg.getKit_select_message() + Msg.getWarriorName());
                     PermissionsEx.getUser(player).addPermission("bw.kit.warrior");
                     PermissionsEx.getUser(player).removePermission("bw.kit.archer");
                     PermissionsEx.getUser(player).removePermission("bw.kit.miner");
@@ -667,10 +667,10 @@ public class BWKits extends JavaPlugin implements Listener {
             case BOW:
                 if (player.hasPermission("archer1")) {
                     player.closeInventory();
-                    player.sendMessage(String.format(kit_already_selected_message, Msg.getArcherName()));
+                    player.sendMessage(String.format(Msg.getKit_already_selected_message(), Msg.getArcherName()));
                 }
                 else {
-                    player.sendMessage(bedwars + kit_select_message + Msg.getArcherName());
+                    player.sendMessage(Msg.getBedwars() + Msg.getKit_select_message() + Msg.getArcherName());
                     PermissionsEx.getUser(player).addPermission("bw.kit.archer");
                     PermissionsEx.getUser(player).removePermission("bw.kit.warrior");
                     PermissionsEx.getUser(player).removePermission("bw.kit.miner");
@@ -696,10 +696,10 @@ public class BWKits extends JavaPlugin implements Listener {
             case IRON_PICKAXE:
                 if (player.hasPermission("miner1")) {
                     player.closeInventory();
-                    player.sendMessage(String.format(kit_already_selected_message, Msg.getMinerName()));
+                    player.sendMessage(String.format(Msg.getKit_already_selected_message(), Msg.getMinerName()));
                 }
                 else {
-                    player.sendMessage(bedwars + kit_select_message + Msg.getMinerName());
+                    player.sendMessage(Msg.getBedwars() + Msg.getKit_select_message() + Msg.getMinerName());
                     PermissionsEx.getUser(player).addPermission("bw.kit.miner");
                     PermissionsEx.getUser(player).removePermission("bw.kit.archer");
                     PermissionsEx.getUser(player).removePermission("bw.kit.warrior");
@@ -725,10 +725,10 @@ public class BWKits extends JavaPlugin implements Listener {
             case SANDSTONE:
                 if (player.hasPermission("builder1")) {
                     player.closeInventory();
-                    player.sendMessage(String.format(kit_already_selected_message, Msg.getBuilderName()));
+                    player.sendMessage(String.format(Msg.getKit_already_selected_message(), Msg.getBuilderName()));
                 }
                 else {
-                    player.sendMessage(bedwars + kit_select_message + Msg.getBuilderName());
+                    player.sendMessage(Msg.getBedwars() + Msg.getKit_select_message() + Msg.getBuilderName());
                     PermissionsEx.getUser(player).addPermission("bw.kit.builder");
                     PermissionsEx.getUser(player).removePermission("bw.kit.archer");
                     PermissionsEx.getUser(player).removePermission("bw.kit.miner");
@@ -754,10 +754,10 @@ public class BWKits extends JavaPlugin implements Listener {
             case CHAINMAIL_CHESTPLATE:
                 if (player.hasPermission("tank1")) {
                     player.closeInventory();
-                    player.sendMessage(String.format(kit_already_selected_message, Msg.getTankName()));
+                    player.sendMessage(String.format(Msg.getKit_already_selected_message(), Msg.getTankName()));
                 }
                 else {
-                    player.sendMessage(bedwars + kit_select_message + Msg.getTankName());
+                    player.sendMessage(Msg.getBedwars() + Msg.getKit_select_message() + Msg.getTankName());
                     PermissionsEx.getUser(player).addPermission("bw.kit.tank");
                     PermissionsEx.getUser(player).removePermission("bw.kit.archer");
                     PermissionsEx.getUser(player).removePermission("bw.kit.miner");
@@ -783,10 +783,10 @@ public class BWKits extends JavaPlugin implements Listener {
             case LEATHER_CHESTPLATE:
                 if (player.hasPermission("defender1")) {
                     player.closeInventory();
-                    player.sendMessage(String.format(kit_already_selected_message, Msg.getDefenderName()));
+                    player.sendMessage(String.format(Msg.getKit_already_selected_message(), Msg.getDefenderName()));
                 }
                 else {
-                    player.sendMessage(bedwars + kit_select_message + Msg.getDefenderName());
+                    player.sendMessage(Msg.getBedwars() + Msg.getKit_select_message() + Msg.getDefenderName());
                     PermissionsEx.getUser(player).addPermission("bw.kit.defender");
                     PermissionsEx.getUser(player).removePermission("bw.kit.archer");
                     PermissionsEx.getUser(player).removePermission("bw.kit.miner");
@@ -812,10 +812,10 @@ public class BWKits extends JavaPlugin implements Listener {
             case BREWING_STAND_ITEM:
                 if (player.hasPermission("alchemist1")) {
                     player.closeInventory();
-                    player.sendMessage(String.format(kit_already_selected_message, Msg.getAlchemistName()));
+                    player.sendMessage(String.format(Msg.getKit_already_selected_message(), Msg.getAlchemistName()));
                 }
                 else {
-                    player.sendMessage(bedwars + kit_select_message + Msg.getAlchemistName());
+                    player.sendMessage(Msg.getBedwars() + Msg.getKit_select_message() + Msg.getAlchemistName());
                     PermissionsEx.getUser(player).addPermission("bw.kit.alchemist");
                     PermissionsEx.getUser(player).removePermission("bw.kit.archer");
                     PermissionsEx.getUser(player).removePermission("bw.kit.miner");
@@ -841,10 +841,10 @@ public class BWKits extends JavaPlugin implements Listener {
             case ENDER_PEARL:
                 if (player.hasPermission("teleporter1")) {
                     player.closeInventory();
-                    player.sendMessage(String.format(kit_already_selected_message, Msg.getTeleporterName()));
+                    player.sendMessage(String.format(Msg.getKit_already_selected_message(), Msg.getTeleporterName()));
                 }
                 else {
-                    player.sendMessage(bedwars + kit_select_message + Msg.getTeleporterName());
+                    player.sendMessage(Msg.getBedwars() + Msg.getKit_select_message() + Msg.getTeleporterName());
                     PermissionsEx.getUser(player).addPermission("bw.kit.teleporter");
                     PermissionsEx.getUser(player).removePermission("bw.kit.archer");
                     PermissionsEx.getUser(player).removePermission("bw.kit.miner");
@@ -870,10 +870,10 @@ public class BWKits extends JavaPlugin implements Listener {
             case DOUBLE_PLANT:
                 if (player.hasPermission("resources1")) {
                     player.closeInventory();
-                    player.sendMessage(String.format(kit_already_selected_message, Msg.getResourcesName()));
+                    player.sendMessage(String.format(Msg.getKit_already_selected_message(), Msg.getResourcesName()));
                 }
                 else {
-                    player.sendMessage(bedwars + kit_select_message + Msg.getResourcesName());
+                    player.sendMessage(Msg.getBedwars() + Msg.getKit_select_message() + Msg.getResourcesName());
                     PermissionsEx.getUser(player).addPermission("bw.kit.resources");
                     PermissionsEx.getUser(player).removePermission("bw.kit.archer");
                     PermissionsEx.getUser(player).removePermission("bw.kit.miner");
@@ -898,7 +898,7 @@ public class BWKits extends JavaPlugin implements Listener {
                 break;
             case INK_SACK:
                 player.closeInventory();
-                player.sendMessage(bedwars + not_kit);
+                player.sendMessage(Msg.getBedwars() + Msg.getNot_kit());
                 break;
             default:
                 player.closeInventory();
@@ -920,7 +920,7 @@ public class BWKits extends JavaPlugin implements Listener {
         List<String> alchemist_lore = this.getConfig().getStringList("alchemist.lore");
         List<String> teleporter_lore = this.getConfig().getStringList("teleporter.lore");
         List<String> resources_lore = this.getConfig().getStringList("resources.lore");
-        Inventory inv = Bukkit.createInventory(null, 9, kitbuy_name);
+        Inventory inv = Bukkit.createInventory(null, 9, Msg.getKitbuy_name());
 
         List<String> lores = new ArrayList<String>();
 // Воин
@@ -933,7 +933,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : warrior_lore){
             lores.add(s);
         }
-        lores.add(buy_allow);
+        lores.add(Msg.getBuy_allow());
         warrior_buyMeta.setLore(lores);
         warrior_buy.setItemMeta(warrior_buyMeta);
 
@@ -945,8 +945,8 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : warrior_lore){
             lores.add(s);
         }
-        lores.add(cost  + Msg.getWarriorCost());
-        lores.add(buy);
+        lores.add(Msg.getCost()  + Msg.getWarriorCost());
+        lores.add(Msg.getBuy());
         warrior_viewMeta.setLore(lores);
         warrior_view.setItemMeta(warrior_viewMeta);
 // Воин
@@ -961,7 +961,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : archer_lore){
             lores.add(s);
         }
-        lores.add(buy_allow);
+        lores.add(Msg.getBuy_allow());
         archer_buyMeta.setLore(lores);
         archer_buy.setItemMeta(archer_buyMeta);
 
@@ -973,8 +973,8 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : warrior_lore){
             lores.add(s);
         }
-        lores.add(cost  + Msg.getArcherCost());
-        lores.add(buy);
+        lores.add(Msg.getCost()  + Msg.getArcherCost());
+        lores.add(Msg.getBuy());
         archer_viewMeta.setLore(lores);
         archer_view.setItemMeta(archer_viewMeta);
 
@@ -986,7 +986,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : archer_lore){
             lores.add(s);
         }
-        lores.add(cost  + Msg.getArcherCost());
+        lores.add(Msg.getCost()  + Msg.getArcherCost());
         lores.add(Msg.getPex_nope() + Msg.getPlatinumdon());
         archer_pexMeta.setLore(lores);
         archer_pex.setItemMeta(archer_pexMeta);
@@ -1002,7 +1002,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : miner_lore){
             lores.add(s);
         }
-        lores.add(buy_allow);
+        lores.add(Msg.getBuy_allow());
         miner_buyMeta.setLore(lores);
         miner_buy.setItemMeta(miner_buyMeta);
 
@@ -1014,8 +1014,8 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : miner_lore){
             lores.add(s);
         }
-        lores.add(cost  + Msg.getMinerCost());
-        lores.add(buy);
+        lores.add(Msg.getCost()  + Msg.getMinerCost());
+        lores.add(Msg.getBuy());
         miner_viewMeta.setLore(lores);
         miner_view.setItemMeta(miner_viewMeta);
 // Шахтер
@@ -1030,7 +1030,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : builder_lore){
             lores.add(s);
         }
-        lores.add(buy_allow);
+        lores.add(Msg.getBuy_allow());
         builder_buyMeta.setLore(lores);
         builder_buy.setItemMeta(builder_buyMeta);
 
@@ -1042,8 +1042,8 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : builder_lore){
             lores.add(s);
         }
-        lores.add(cost  + Msg.getBuilderCost());
-        lores.add(buy);
+        lores.add(Msg.getCost()  + Msg.getBuilderCost());
+        lores.add(Msg.getBuy());
         builder_viewMeta.setLore(lores);
         builder_view.setItemMeta(builder_viewMeta);
 // Строитель
@@ -1058,7 +1058,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : tank_lore){
             lores.add(s);
         }
-        lores.add(buy_allow);
+        lores.add(Msg.getBuy_allow());
         tank_buyMeta.setLore(lores);
         tank_buy.setItemMeta(tank_buyMeta);
 
@@ -1070,8 +1070,8 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : tank_lore){
             lores.add(s);
         }
-        lores.add(cost  + Msg.getTankCost());
-        lores.add(buy);
+        lores.add(Msg.getCost()  + Msg.getTankCost());
+        lores.add(Msg.getBuy());
         tank_viewMeta.setLore(lores);
         tank_view.setItemMeta(tank_viewMeta);
 // Танк
@@ -1086,7 +1086,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : defender_lore){
             lores.add(s);
         }
-        lores.add(buy_allow);
+        lores.add(Msg.getBuy_allow());
         defender_buyMeta.setLore(lores);
         defender_buy.setItemMeta(defender_buyMeta);
 
@@ -1098,8 +1098,8 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : defender_lore){
             lores.add(s);
         }
-        lores.add(cost  + Msg.getDefenderCost());
-        lores.add(buy);
+        lores.add(Msg.getCost()  + Msg.getDefenderCost());
+        lores.add(Msg.getBuy());
         defender_viewMeta.setLore(lores);
         defender_view.setItemMeta(defender_viewMeta);
 // Защитник
@@ -1114,7 +1114,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : alchemist_lore){
             lores.add(s);
         }
-        lores.add(buy_allow);
+        lores.add(Msg.getBuy_allow());
         alchemist_buyMeta.setLore(lores);
         alchemist_buy.setItemMeta(alchemist_buyMeta);
 
@@ -1126,8 +1126,8 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : alchemist_lore){
             lores.add(s);
         }
-        lores.add(cost  + Msg.getAlchemistCost());
-        lores.add(buy);
+        lores.add(Msg.getCost()  + Msg.getAlchemistCost());
+        lores.add(Msg.getBuy());
         alchemist_viewMeta.setLore(lores);
         alchemist_view.setItemMeta(alchemist_viewMeta);
 
@@ -1139,7 +1139,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : alchemist_lore){
             lores.add(s);
         }
-        lores.add(cost  + Msg.getAlchemistCost());
+        lores.add(Msg.getCost()  + Msg.getAlchemistCost());
         lores.add(Msg.getPex_nope() + Msg.getVipdon());
         alchemist_pexMeta.setLore(lores);
         alchemist_pex.setItemMeta(alchemist_pexMeta);
@@ -1155,7 +1155,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : teleporter_lore){
             lores.add(s);
         }
-        lores.add(buy_allow);
+        lores.add(Msg.getBuy_allow());
         teleporter_buyMeta.setLore(lores);
         teleporter_buy.setItemMeta(teleporter_buyMeta);
 
@@ -1167,8 +1167,8 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : teleporter_lore){
             lores.add(s);
         }
-        lores.add(cost  + Msg.getTeleporterCost());
-        lores.add(buy);
+        lores.add(Msg.getCost()  + Msg.getTeleporterCost());
+        lores.add(Msg.getBuy());
         teleporter_viewMeta.setLore(lores);
         teleporter_view.setItemMeta(teleporter_viewMeta);
 
@@ -1180,7 +1180,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : teleporter_lore){
             lores.add(s);
         }
-        lores.add(cost  + Msg.getTeleporterCost());
+        lores.add(Msg.getCost()  + Msg.getTeleporterCost());
         lores.add(Msg.getPex_nope() + Msg.getPlatinumdon());
         teleporter_pexMeta.setLore(lores);
         teleporter_pex.setItemMeta(teleporter_pexMeta);
@@ -1196,7 +1196,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : resources_lore){
             lores.add(s);
         }
-        lores.add(buy_allow);
+        lores.add(Msg.getBuy_allow());
         resources_buyMeta.setLore(lores);
         resources_buy.setItemMeta(resources_buyMeta);
 
@@ -1208,8 +1208,8 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : resources_lore){
             lores.add(s);
         }
-        lores.add(cost  + Msg.getResourcesCost());
-        lores.add(buy);
+        lores.add(Msg.getCost()  + Msg.getResourcesCost());
+        lores.add(Msg.getBuy());
         resources_viewMeta.setLore(lores);
         resources_view.setItemMeta(resources_viewMeta);
 
@@ -1221,7 +1221,7 @@ public class BWKits extends JavaPlugin implements Listener {
         for (String s : resources_lore){
             lores.add(s);
         }
-        lores.add(cost  + Msg.getResourcesCost());
+        lores.add(Msg.getCost()  + Msg.getResourcesCost());
         lores.add(Msg.getPex_nope() + Msg.getPlatinumdon());
         resources_pexMeta.setLore(lores);
         resources_pex.setItemMeta(resources_pexMeta);
@@ -1326,37 +1326,37 @@ public class BWKits extends JavaPlugin implements Listener {
                     if (balance >= Msg.getWarriorCost()) {
                         player.closeInventory();
                         economy.withdrawPlayer(player, Msg.getWarriorCost()); //depositPlayer - выдать | withdrawPlayer - снять
-                        player.sendMessage(String.format(buy_now, Msg.getWarriorName()));
+                        player.sendMessage(String.format(Msg.getBuy_now(), Msg.getWarriorName()));
                         PermissionsEx.getUser(player).addPermission("bw.buykit.warrior");
                     } else {
                         player.closeInventory();
-                        player.sendMessage(not_enought_money);
+                        player.sendMessage(Msg.getNot_enought_money());
                     }
                 } else {
                     player.closeInventory();
-                    player.sendMessage(String.format(already_buy, Msg.getWarriorName()));
+                    player.sendMessage(String.format(Msg.getAlready_buy(), Msg.getWarriorName()));
                 }
                 break;
             case 1:
                 if (!player.isPermissionSet("bw.buykit.archer")){
                     if (!player.isPermissionSet("bw.buykit.d_archer")) {
                         player.closeInventory();
-                        player.sendMessage(bedwars + Msg.getPex_nope() + Msg.getPlatinumdon());
+                        player.sendMessage(Msg.getBedwars() + Msg.getPex_nope() + Msg.getPlatinumdon());
                     }
                     else {
                         if (balance >= Msg.getArcherCost()) {
                             player.closeInventory();
                             economy.withdrawPlayer(player, Msg.getArcherCost());
-                            player.sendMessage(String.format(buy_now, Msg.getArcherName()));
+                            player.sendMessage(String.format(Msg.getBuy_now(), Msg.getArcherName()));
                             PermissionsEx.getUser(player).addPermission("bw.buykit.archer");
                         } else {
                             player.closeInventory();
-                            player.sendMessage(not_enought_money);
+                            player.sendMessage(Msg.getNot_enought_money());
                         }
                     }
                 } else {
                     player.closeInventory();
-                    player.sendMessage(String.format(already_buy, Msg.getArcherName()));
+                    player.sendMessage(String.format(Msg.getAlready_buy(), Msg.getArcherName()));
                 }
                 break;
             case 2:
@@ -1364,15 +1364,15 @@ public class BWKits extends JavaPlugin implements Listener {
                     if (balance >= Msg.getMinerCost()) {
                         player.closeInventory();
                         economy.withdrawPlayer(player, Msg.getMinerCost());
-                        player.sendMessage(String.format(buy_now, Msg.getMinerName()));
+                        player.sendMessage(String.format(Msg.getBuy_now(), Msg.getMinerName()));
                         PermissionsEx.getUser(player).addPermission("bw.buykit.miner");
                     } else {
                         player.closeInventory();
-                        player.sendMessage(not_enought_money);
+                        player.sendMessage(Msg.getNot_enought_money());
                     }
                 } else {
                     player.closeInventory();
-                    player.sendMessage(String.format(already_buy, Msg.getMinerName()));
+                    player.sendMessage(String.format(Msg.getAlready_buy(), Msg.getMinerName()));
                 }
                 break;
             case 3:
@@ -1380,15 +1380,15 @@ public class BWKits extends JavaPlugin implements Listener {
                     if (balance >= Msg.getBuilderCost()) {
                         player.closeInventory();
                         economy.withdrawPlayer(player, Msg.getBuilderCost());
-                        player.sendMessage(String.format(buy_now, Msg.getBuilderName()));
+                        player.sendMessage(String.format(Msg.getBuy_now(), Msg.getBuilderName()));
                         PermissionsEx.getUser(player).addPermission("bw.buykit.builder");
                     } else {
                         player.closeInventory();
-                        player.sendMessage(not_enought_money);
+                        player.sendMessage(Msg.getNot_enought_money());
                     }
                 } else {
                     player.closeInventory();
-                    player.sendMessage(String.format(already_buy, Msg.getBuilderName()));
+                    player.sendMessage(String.format(Msg.getAlready_buy(), Msg.getBuilderName()));
                 }
                 break;
             case 4:
@@ -1396,15 +1396,15 @@ public class BWKits extends JavaPlugin implements Listener {
                     if (balance >= Msg.getTankCost()) {
                         player.closeInventory();
                         economy.withdrawPlayer(player, Msg.getTankCost());
-                        player.sendMessage(String.format(buy_now, Msg.getTankName()));
+                        player.sendMessage(String.format(Msg.getBuy_now(), Msg.getTankName()));
                         PermissionsEx.getUser(player).addPermission("bw.buykit.tank");
                     } else {
                         player.closeInventory();
-                        player.sendMessage(not_enought_money);
+                        player.sendMessage(Msg.getNot_enought_money());
                     }
                 } else {
                     player.closeInventory();
-                    player.sendMessage(String.format(already_buy, Msg.getTankName()));
+                    player.sendMessage(String.format(Msg.getAlready_buy(), Msg.getTankName()));
                 }
                 break;
             case 5:
@@ -1412,81 +1412,81 @@ public class BWKits extends JavaPlugin implements Listener {
                     if (balance >= Msg.getDefenderCost()) {
                         player.closeInventory();
                         economy.withdrawPlayer(player, Msg.getDefenderCost());
-                        player.sendMessage(String.format(buy_now, Msg.getDefenderName()));
+                        player.sendMessage(String.format(Msg.getBuy_now(), Msg.getDefenderName()));
                         PermissionsEx.getUser(player).addPermission("bw.buykit.defender");
                     } else {
                         player.closeInventory();
-                        player.sendMessage(not_enought_money);
+                        player.sendMessage(Msg.getNot_enought_money());
                     }
                 } else {
                     player.closeInventory();
-                    player.sendMessage(String.format(already_buy, Msg.getDefenderName()));
+                    player.sendMessage(String.format(Msg.getAlready_buy(), Msg.getDefenderName()));
                 }
                 break;
             case 6:
                 if (!player.isPermissionSet("bw.buykit.alchemist")){
                     if (!player.isPermissionSet("bw.buykit.d_alchemist")) {
                         player.closeInventory();
-                        player.sendMessage(bedwars + Msg.getPex_nope() + Msg.getVipdon());
+                        player.sendMessage(Msg.getBedwars() + Msg.getPex_nope() + Msg.getVipdon());
                     }
                     else {
                         if (balance >= Msg.getAlchemistCost()) {
                             player.closeInventory();
                             economy.withdrawPlayer(player, Msg.getAlchemistCost());
-                            player.sendMessage(String.format(buy_now, Msg.getAlchemistName()));
+                            player.sendMessage(String.format(Msg.getBuy_now(), Msg.getAlchemistName()));
                             PermissionsEx.getUser(player).addPermission("bw.buykit.alchemist");
                         } else {
                             player.closeInventory();
-                            player.sendMessage(not_enought_money);
+                            player.sendMessage(Msg.getNot_enought_money());
                         }
                     }
                 } else {
                     player.closeInventory();
-                    player.sendMessage(String.format(already_buy, Msg.getAlchemistName()));
+                    player.sendMessage(String.format(Msg.getAlready_buy(), Msg.getAlchemistName()));
                 }
                 break;
             case 7:
                 if (!player.isPermissionSet("bw.buykit.teleporter")){
                     if (!player.isPermissionSet("bw.buykit.d_teleporter")) {
                         player.closeInventory();
-                        player.sendMessage(bedwars + Msg.getPex_nope() + Msg.getPlatinumdon());
+                        player.sendMessage(Msg.getBedwars() + Msg.getPex_nope() + Msg.getPlatinumdon());
                     }
                     else {
                         if (balance >= Msg.getTeleporterCost()) {
                             player.closeInventory();
                             economy.withdrawPlayer(player, Msg.getTeleporterCost());
-                            player.sendMessage(String.format(buy_now, Msg.getTeleporterName()));
+                            player.sendMessage(String.format(Msg.getBuy_now(), Msg.getTeleporterName()));
                             PermissionsEx.getUser(player).addPermission("bw.buykit.teleporter");
                         } else {
                             player.closeInventory();
-                            player.sendMessage(not_enought_money);
+                            player.sendMessage(Msg.getNot_enought_money());
                         }
                     }
                 } else {
                     player.closeInventory();
-                    player.sendMessage(String.format(already_buy, Msg.getTeleporterName()));
+                    player.sendMessage(String.format(Msg.getAlready_buy(), Msg.getTeleporterName()));
                 }
                 break;
             case 8:
                 if (!player.isPermissionSet("bw.buykit.resources")){
                     if (!player.isPermissionSet("bw.buykit.d_resources")) {
                         player.closeInventory();
-                        player.sendMessage(bedwars + Msg.getPex_nope() + Msg.getPlatinumdon());
+                        player.sendMessage(Msg.getBedwars() + Msg.getPex_nope() + Msg.getPlatinumdon());
                     }
                     else {
                         if (balance >= Msg.getResourcesCost()) {
                             player.closeInventory();
                             economy.withdrawPlayer(player, Msg.getResourcesCost());
-                            player.sendMessage(String.format(buy_now, Msg.getResourcesName()));
+                            player.sendMessage(String.format(Msg.getBuy_now(), Msg.getResourcesName()));
                             PermissionsEx.getUser(player).addPermission("bw.buykit.resources");
                         } else {
                             player.closeInventory();
-                            player.sendMessage(not_enought_money);
+                            player.sendMessage(Msg.getNot_enought_money());
                         }
                     }
                 } else {
                     player.closeInventory();
-                    player.sendMessage(String.format(already_buy, Msg.getResourcesName()));
+                    player.sendMessage(String.format(Msg.getAlready_buy(), Msg.getResourcesName()));
                 }
                 break;
             default:
@@ -1500,10 +1500,10 @@ public class BWKits extends JavaPlugin implements Listener {
         if(!(sender instanceof Player)) {
             if(cmd.getName().equalsIgnoreCase("bwreload") && args.length == 0) {
                 reloadConfig();
-                getServer().getConsoleSender().sendMessage(bwkit + cfgreload);
+                getServer().getConsoleSender().sendMessage(Msg.getBwkit() + Msg.getCfgreload());
             }
             else
-                getServer().getConsoleSender().sendMessage(command_console);
+                getServer().getConsoleSender().sendMessage(Msg.getCommand_console());
         }
         else {
             Player player = (Player) sender;
@@ -1537,9 +1537,9 @@ public class BWKits extends JavaPlugin implements Listener {
                     PermissionsEx.getUser(player).removePermission("miner1");
                     PermissionsEx.getUser(player).removePermission("teleporter1");
                     PermissionsEx.getUser(player).removePermission("resources1");
-                    player.sendMessage(bwkit + pex_reset);
+                    player.sendMessage(Msg.getBwkit() + Msg.getPex_reset());
                 } else
-                    player.sendMessage(pex_deny);
+                    player.sendMessage(Msg.getPex_deny());
             }
             if(cmd.getName().equalsIgnoreCase("bwshopgui") && args.length == 0)
                 openGUI_shop(player);
@@ -1547,7 +1547,7 @@ public class BWKits extends JavaPlugin implements Listener {
                 openGUI(player);
             if(cmd.getName().equalsIgnoreCase("bwreload") && args.length == 0) {
                 reloadConfig();
-                player.sendMessage(bwkit + cfgreload);
+                player.sendMessage(Msg.getBwkit() + Msg.getCfgreload());
             }
             return true;
         }
@@ -1690,12 +1690,12 @@ public class BWKits extends JavaPlugin implements Listener {
         // Легкий старт
         ItemStack resources_item1 = new ItemStack(Material.BRICK, 64);
         ItemMeta resources_item1Meta =  resources_item1.getItemMeta();
-        resources_item1Meta.setDisplayName(bronze_name);
+        resources_item1Meta.setDisplayName(Msg.getBronze_name());
         resources_item1.setItemMeta(resources_item1Meta);
 
         ItemStack resources_item2 = new ItemStack(Material.IRON_INGOT, 4);
         ItemMeta resources_item2Meta =  resources_item2.getItemMeta();
-        resources_item2Meta.setDisplayName(iron_name);
+        resources_item2Meta.setDisplayName(Msg.getIron_name());
         resources_item2.setItemMeta(resources_item2Meta);
         // Легкий старт
 
@@ -1716,14 +1716,14 @@ public class BWKits extends JavaPlugin implements Listener {
             if (player.getWorld().getName().equalsIgnoreCase(s)) {
                 if (player.hasPermission("bw.kit.warrior")) {
                     getServer().getScheduler().scheduleSyncDelayedTask(this, () -> {
-                        player.sendMessage(bedwars + kit_give + Msg.getWarriorName());
+                        player.sendMessage(Msg.getBedwars() + Msg.getKit_give() + Msg.getWarriorName());
                         inv.setItemInHand(warrior_item1);
                     }, 10L);
                 }
 
                 if (player.hasPermission("bw.kit.archer")) {
                     getServer().getScheduler().scheduleSyncDelayedTask(this, () -> {
-                        player.sendMessage(bedwars + kit_give + Msg.getArcherName());
+                        player.sendMessage(Msg.getBedwars() + Msg.getKit_give() + Msg.getArcherName());
                         inv.setItem(0, archer_item1);
                         inv.setItem(1, archer_item2);
                     }, 10L);
@@ -1731,21 +1731,21 @@ public class BWKits extends JavaPlugin implements Listener {
 
                 if (player.hasPermission("bw.kit.miner")) {
                     getServer().getScheduler().scheduleSyncDelayedTask(this, () -> {
-                        player.sendMessage(bedwars + kit_give + Msg.getMinerName());
+                        player.sendMessage(Msg.getBedwars() + Msg.getKit_give() + Msg.getMinerName());
                         inv.setItemInHand(miner_item1);
                     }, 10L);
                 }
 
                 if (player.hasPermission("bw.kit.builder")) {
                     getServer().getScheduler().scheduleSyncDelayedTask(this, () -> {
-                        player.sendMessage(bedwars + kit_give + Msg.getBuilderName());
+                        player.sendMessage(Msg.getBedwars() + Msg.getKit_give() + Msg.getBuilderName());
                         inv.setItemInHand(builder_item1);
                     }, 10L);
                 }
 
                 if (player.hasPermission("bw.kit.tank")) {
                     getServer().getScheduler().scheduleSyncDelayedTask(this, () -> {
-                        player.sendMessage(bedwars + kit_give + Msg.getTankName());
+                        player.sendMessage(Msg.getBedwars() + Msg.getKit_give() + Msg.getTankName());
                         inv.setItem(39, tank_item1);
                         inv.setItem(38, tank_item2);
                         inv.setItem(37, tank_item3);
@@ -1755,7 +1755,7 @@ public class BWKits extends JavaPlugin implements Listener {
 
                 if (player.hasPermission("bw.kit.defender")) {
                     getServer().getScheduler().scheduleSyncDelayedTask(this, () -> {
-                        player.sendMessage(bedwars + kit_give + Msg.getDefenderName());
+                        player.sendMessage(Msg.getBedwars() + Msg.getKit_give() + Msg.getDefenderName());
                         inv.setItem(39, defender_item1);
                         inv.setItem(38, defender_item2);
                         inv.setItem(37, defender_item3);
@@ -1764,26 +1764,26 @@ public class BWKits extends JavaPlugin implements Listener {
                     }, 10L);
                 } else if (player.hasPermission("bw.kit.alchemist")) {
                     getServer().getScheduler().scheduleSyncDelayedTask(this, () -> {
-                        player.sendMessage(bedwars + kit_give + Msg.getAlchemistName());
+                        player.sendMessage(Msg.getBedwars() + Msg.getKit_give() + Msg.getAlchemistName());
                         inv.setItem(0, potion);
                     }, 10L);
                 } else if (player.hasPermission("bw.kit.teleporter")) {
-                    player.sendMessage(bedwars + teleporter_countdown1);
+                    player.sendMessage(Msg.getBedwars() + Msg.getTeleporter_countdown1());
                     getServer().getScheduler().scheduleSyncDelayedTask(this, () -> {
 
-                        player.sendMessage(bedwars + teleporter_countdown2);
+                        player.sendMessage(Msg.getBedwars() + Msg.getTeleporter_countdown2());
                         getServer().getScheduler().scheduleSyncDelayedTask(this, () -> {
 
-                            player.sendMessage(bedwars + teleporter_countdown3);
+                            player.sendMessage(Msg.getBedwars() + Msg.getTeleporter_countdown3());
                             getServer().getScheduler().scheduleSyncDelayedTask(this, () -> {
-                                player.sendMessage(bedwars + kit_give + Msg.getTeleporterName());
+                                player.sendMessage(Msg.getBedwars() + Msg.getKit_give() + Msg.getTeleporterName());
                                 inv.setItemInHand(teleporter_item1);
                             }, 300L);
                         }, 400L);
                     }, 600L);
                 } else if (player.hasPermission("bw.kit.resources")) {
                     getServer().getScheduler().scheduleSyncDelayedTask(this, () -> {
-                        player.sendMessage(bedwars + kit_give + Msg.getResourcesName());
+                        player.sendMessage(Msg.getBedwars() + Msg.getKit_give() + Msg.getResourcesName());
                         inv.setItem(39, tank_item1);
                         inv.setItem(1, archer_item2);
                     }, 10L);
