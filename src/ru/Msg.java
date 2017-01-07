@@ -174,4 +174,5 @@ public class Msg {
     public static String getBuy_allow() { return buy_allow; }
     public static String getPex_deny() { return pex_deny; }
     public static String getCfgreload() { return cfgreload; }
+
 }
