@@ -1,19 +1,19 @@
-#╭━━╮╱╭╮╭╮╭╮╭╮╭━╮╭━━╮╭━━━━╮╱╱╱╱╱╭╮╱╭━━━╮
-#┃╭╮┃╱┃┃┃┃┃┃┃┃┃╭╯╰┫┣╯┃╭╮╭╮┃╱╱╱╱╭╯┃╱┃╭━╮┃
-#┃╰╯╰╮┃┃┃┃┃┃┃╰╯╯╱╱┃┃╱╰╯┃┃╰╯╭╮╭╮╰╮┃╱┃┃┃┃┃
-#┃╭━╮┃┃╰╯╰╯┃┃╭╮┃╱╱┃┃╱╱╱┃┃╱╱┃╰╯┃╱┃┃╱┃┃┃┃┃
-#┃╰━╯┃╰╮╭╮╭╯┃┃┃╰╮╭┫┣╮╱╱┃┃╱╱╰╮╭╯╭╯╰┳┫╰━╯┃
-#╰━━━╯╱╰╯╰╯╱╰╯╰━╯╰━━╯╱╱╰╯╱╱╱╰╯╱╰━━┻┻━━━╯
+#╔══╗╔╗╔╗╔╦╗╔═╦══╦════╦═══╗─────╔╗─╔═══╗
+#║╔╗║║║║║║║║║╔╩╣╠╣╔╗╔╗║╔═╗║────╔╝║─║╔═╗║
+#║╚╝╚╣║║║║║╚╝╝─║║╚╝║║╚╣╚══╗╔╗╔╗╚╗║─║║║║║
+#║╔═╗║╚╝╚╝║╔╗║─║║──║║─╚══╗║║╚╝║─║║─║║║║║
+#║╚═╝╠╗╔╗╔╣║║╚╦╣╠╗─║║─║╚═╝║╚╗╔╝╔╝╚╦╣╚═╝║
+#╚═══╝╚╝╚╝╚╝╚═╩══╝─╚╝─╚═══╝─╚╝─╚══╩╩═══╝
 #
 #======= BWkit by BrainRTP ======#
-# /bws - Shop
-# /bwk - Kit Menu
-# /bwc - Clear permissoin
-# /bwr - Reload config.yml
-# Permissions:
-# bw.kit.<kit> - Allowed kit
-# bw.buykit.<kit> - Already boght kit
-# bw.buykit.d_<kit> - Accept to buy donation kit
+#/bws - Opens kit shop.[Uses to purchasing kits]
+#/bwk - Opens kit selector.[Uses to chose kits]
+#/bwc - Clears all kits
+#/bwr - Reloading config
+#
+#bw.kit.<kit> - Activated kit. [You selecting this kit in kit selector]
+#bw.buykit.<kit> - Purchased kit. [Adds to you when you purchasing any kit]
+#bw.buykit.d_<kit> - Permission for buying kit.
 #=================================#
 #===== Maps =====#
 maps:
@@ -134,7 +134,7 @@ resources:
 kitselect_name: "§8Kit Selector"
 kitbuy_name: "§8Kit Shop"
 cost: "§e⛂ Price: "
-pex reset: "§eAll permissions cleared."
+pex_reset: "§eAll permissions cleared."
 accept: "§aClick to select"
 accept_no: "§7Not Available. Buy in §c/bwshop"
 allow: "§a§nSelected!"

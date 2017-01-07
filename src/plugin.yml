@@ -1,6 +1,6 @@
 name: BWKits
 author: BrainRTP
-main: ru.InventoryGUI
+main: ru.BWKits
 version: 1.0
 description: 'Kits for BedWars'
 prefix: BWKits

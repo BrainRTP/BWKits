@@ -7,6 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
@@ -14,6 +15,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
@@ -29,21 +31,26 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
-public class InventoryGUI extends JavaPlugin implements Listener {
+public class BWKits extends JavaPlugin implements Listener {
     private static Plugin plugin;
     private FileConfiguration data;
+    private File file;
     public void onEnable() {
+        plugin = this;
+        Msg.load();
+        file = new File(getDataFolder(), "config.yml");
         getServer().getPluginManager().registerEvents(this, this);
-        this.saveDefaultConfig();
-        File dataFile = new File(getDataFolder() + File.separator + "config.yml");
-        if (!dataFile.exists()){
-            try {
-                dataFile.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+//        this.saveDefaultConfig();
+//        File dataFile = new File(getDataFolder() + File.separator + "config.yml");
+//        if (!dataFile.exists()){
+//            try {
+//                dataFile.createNewFile();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
         getServer().getConsoleSender().sendMessage("§c==============§a BWKits v1.0 §c==============");
         getServer().getConsoleSender().sendMessage("§aThe plugin has been successfully enabled!");
         getServer().getConsoleSender().sendMessage("§c=========================================");
@@ -54,7 +61,9 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         getServer().getConsoleSender().sendMessage("§4The plugin has been successfully disabled!");
         getServer().getConsoleSender().sendMessage("§c=========================================");
     }
-
+    public static Plugin getPlugin() {
+        return plugin;
+    }
 
     public static Economy economy = null;
     private boolean setupEconomy(){
@@ -65,30 +74,30 @@ public class InventoryGUI extends JavaPlugin implements Listener {
 
         return (economy != null);
     }
-    String pex_nope = this.getConfig().getString("pex_nope");
-    String vipdon = this.getConfig().getString("vipdon");
-    String vipplusdon = this.getConfig().getString("vipplusdon");
-    String platinumdon = this.getConfig().getString("platinumdon");
-
-    int warrior_cost = this.getConfig().getInt("warrior.cost");
-    int archer_cost = this.getConfig().getInt("archer.cost");
-    int miner_cost = this.getConfig().getInt("miner.cost");
-    int builder_cost = this.getConfig().getInt("builder.cost");
-    int tank_cost = this.getConfig().getInt("tank.cost");
-    int defender_cost = this.getConfig().getInt("defender.cost");
-    int alchemist_cost = this.getConfig().getInt("alchemist.cost");
-    int teleporter_cost = this.getConfig().getInt("teleporter.cost");
-    int resources_cost = this.getConfig().getInt("resources.cost");
-
-    String warrior_name = this.getConfig().getString("warrior.name");
-    String archer_name = this.getConfig().getString("archer.name");
-    String miner_name = this.getConfig().getString("miner.name");
-    String builder_name = this.getConfig().getString("builder.name");
-    String tank_name = this.getConfig().getString("tank.name");
-    String defender_name = this.getConfig().getString("defender.name");
-    String alchemist_name = this.getConfig().getString("alchemist.name");
-    String teleporter_name = this.getConfig().getString("teleporter.name");
-    String resources_name = this.getConfig().getString("resources.name");
+//    String Msg.getPex_nope() = this.getConfig().getString("Msg.getPex_nope()");
+//    String Msg.getVipdon() = this.getConfig().getString("Msg.getVipdon()");
+//    String Msg.getVipplusdon() = this.getConfig().getString("Msg.getVipplusdon()");
+//    String Msg.getPlatinumdon() = this.getConfig().getString("Msg.getPlatinumdon()");
+//
+//    int Msg.getWarriorCost() = this.getConfig().getInt("warrior.cost");
+//    int Msg.getArcherCost() = this.getConfig().getInt("archer.cost");
+//    int Msg.getMinerCost() = this.getConfig().getInt("miner.cost");
+//    int Msg.getBuilderCost() = this.getConfig().getInt("builder.cost");
+//    int Msg.getTankCost() = this.getConfig().getInt("tank.cost");
+//    int Msg.getDefenderCost() = this.getConfig().getInt("defender.cost");
+//    int Msg.getAlchemistCost() = this.getConfig().getInt("alchemist.cost");
+//    int Msg.getTeleporterCost() = this.getConfig().getInt("teleporter.cost");
+//    int Msg.getResourcesCost() = this.getConfig().getInt("resources.cost");
+//
+//    String Msg.getWarriorName() = this.getConfig().getString("warrior.name");
+//    String Msg.getArcherName() = this.getConfig().getString("archer.name");
+//    String Msg.getMinerName() = this.getConfig().getString("miner.name");
+//    String Msg.getBuilderName() = this.getConfig().getString("builder.name");
+//    String Msg.getTankName() = this.getConfig().getString("tank.name");
+//    String Msg.getDefenderName() = this.getConfig().getString("defender.name");
+//    String Msg.getAlchemistName() = this.getConfig().getString("alchemist.name");
+//    String Msg.getTeleporterName() = this.getConfig().getString("teleporter.name");
+//    String Msg.getResourcesName() = this.getConfig().getString("resources.name");
 
     String kit_already_selected_message = this.getConfig().getString("kit_already_selected_message");
 
@@ -122,7 +131,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
 
     public void openGUI(Player player) { //Гуи выбора класса '/bwk'
 
-        String warrior_name = this.getConfig().getString("warrior.name");
+//        String Msg.getWarriorName() = this.getConfig().getString("warrior.name");
         List<String> warrior_lore = this.getConfig().getStringList("warrior.lore");
         List<String> archer_lore = this.getConfig().getStringList("archer.lore");
         List<String> miner_lore = this.getConfig().getStringList("miner.lore");
@@ -144,7 +153,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemStack warrior = new ItemStack(Material.IRON_SWORD); //Какой предмет будет отображаться
         ItemMeta warriorMeta = warrior.getItemMeta(); //хз зачем, но без него никак.
 
-        warriorMeta.setDisplayName(warrior_name); //название айтема
+        warriorMeta.setDisplayName(Msg.getWarriorName()); //название айтема
         for (String s : warrior_lore){
             lores.add(s);
         }
@@ -157,7 +166,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta warrior_noMeta = warrior_no.getItemMeta();
 
         lores = new ArrayList<String>();
-        warrior_noMeta.setDisplayName(warrior_name);
+        warrior_noMeta.setDisplayName(Msg.getWarriorName());
         lores.add(accept_no);
         warrior_noMeta.setLore(lores);
         warrior_no.setItemMeta(warrior_noMeta);
@@ -168,7 +177,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
 
         lores = new ArrayList<String>();
         warrior_yesMeta.addEnchant(Enchantment.DURABILITY, 1, true);
-        warrior_yesMeta.setDisplayName(warrior_name);
+        warrior_yesMeta.setDisplayName(Msg.getWarriorName());
         for (String s : warrior_lore){
             lores.add(s);
         }
@@ -183,7 +192,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta archerMeta = archer.getItemMeta();
 
 
-        archerMeta.setDisplayName(archer_name);
+        archerMeta.setDisplayName(Msg.getArcherName());
         lores = new ArrayList<String>();
         for (String s : archer_lore){
             lores.add(s);
@@ -196,8 +205,8 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta archer_noMeta = archer_no.getItemMeta();
 
         lores = new ArrayList<String>();
-        archer_noMeta.setDisplayName(archer_name);
-        lores.add(pex_nope + vipdon);
+        archer_noMeta.setDisplayName(Msg.getArcherName());
+        lores.add(Msg.getPex_nope() + Msg.getVipdon());
         archer_noMeta.setLore(lores);
         archer_no.setItemMeta(archer_noMeta);
 
@@ -206,7 +215,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
 
         lores = new ArrayList<String>();
         archer_yesMeta.addEnchant(Enchantment.DURABILITY, 1, true);
-        archer_yesMeta.setDisplayName(archer_name);
+        archer_yesMeta.setDisplayName(Msg.getArcherName());
         for (String s : archer_lore){
             lores.add(s);
         }
@@ -219,8 +228,8 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta archer_pexMeta = archer_pex.getItemMeta();
 
         lores = new ArrayList<String>();
-        archer_pexMeta.setDisplayName(archer_name);
-        lores.add(pex_nope + platinumdon);
+        archer_pexMeta.setDisplayName(Msg.getArcherName());
+        lores.add(Msg.getPex_nope() + Msg.getPlatinumdon());
         archer_pexMeta.setLore(lores);
         archer_pex.setItemMeta(archer_pexMeta);
 // Лучник
@@ -230,7 +239,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemStack miner = new ItemStack(Material.IRON_PICKAXE);
         ItemMeta minerMeta = miner.getItemMeta();
 
-        minerMeta.setDisplayName(miner_name);
+        minerMeta.setDisplayName(Msg.getMinerName());
         lores = new ArrayList<String>();
         for (String s : miner_lore){
             lores.add(s);
@@ -243,7 +252,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta miner_noMeta = miner_no.getItemMeta();
 
         lores = new ArrayList<String>();
-        miner_noMeta.setDisplayName(miner_name);
+        miner_noMeta.setDisplayName(Msg.getMinerName());
         lores.add(accept_no);
         miner_noMeta.setLore(lores);
         miner_no.setItemMeta(miner_noMeta);
@@ -253,7 +262,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
 
         lores = new ArrayList<String>();
         miner_yesMeta.addEnchant(Enchantment.DURABILITY, 1, true);
-        miner_yesMeta.setDisplayName(miner_name);
+        miner_yesMeta.setDisplayName(Msg.getMinerName());
         for (String s : miner_lore){
             lores.add(s);
         }
@@ -266,7 +275,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemStack builder = new ItemStack(Material.SANDSTONE);
         ItemMeta builderMeta = builder.getItemMeta();
 
-        builderMeta.setDisplayName(builder_name);
+        builderMeta.setDisplayName(Msg.getBuilderName());
         lores = new ArrayList<String>();
         for (String s : builder_lore){
             lores.add(s);
@@ -279,7 +288,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta builder_noMeta = builder_no.getItemMeta();
 
         lores = new ArrayList<String>();
-        builder_noMeta.setDisplayName(builder_name);
+        builder_noMeta.setDisplayName(Msg.getBuilderName());
         lores.add(accept_no);
         builder_noMeta.setLore(lores);
         builder_no.setItemMeta(builder_noMeta);
@@ -289,7 +298,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
 
         lores = new ArrayList<String>();
         builder_yesMeta.addEnchant(Enchantment.DURABILITY, 1, true);
-        builder_yesMeta.setDisplayName(builder_name);
+        builder_yesMeta.setDisplayName(Msg.getBuilderName());
         for (String s : builder_lore){
             lores.add(s);
         }
@@ -302,7 +311,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemStack tank = new ItemStack(Material.CHAINMAIL_CHESTPLATE);
         ItemMeta tankMeta = tank.getItemMeta();
 
-        tankMeta.setDisplayName(tank_name);
+        tankMeta.setDisplayName(Msg.getTankName());
         lores = new ArrayList<String>();
         for (String s : tank_lore){
             lores.add(s);
@@ -315,7 +324,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta tank_noMeta = tank_no.getItemMeta();
 
         lores = new ArrayList<String>();
-        tank_noMeta.setDisplayName(tank_name);
+        tank_noMeta.setDisplayName(Msg.getTankName());
         lores.add(accept_no);
         tank_noMeta.setLore(lores);
         tank_no.setItemMeta(tank_noMeta);
@@ -325,7 +334,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
 
         lores = new ArrayList<String>();
         tank_yesMeta.addEnchant(Enchantment.DURABILITY, 1, true);
-        tank_yesMeta.setDisplayName(tank_name);
+        tank_yesMeta.setDisplayName(Msg.getTankName());
         for (String s : tank_lore){
             lores.add(s);
         }
@@ -338,7 +347,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemStack defender = new ItemStack(Material.LEATHER_CHESTPLATE);
         ItemMeta defenderMeta = defender.getItemMeta();
 
-        defenderMeta.setDisplayName(defender_name);
+        defenderMeta.setDisplayName(Msg.getDefenderName());
         lores = new ArrayList<String>();
         for (String s : defender_lore){
             lores.add(s);
@@ -351,7 +360,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta defender_noMeta = defender_no.getItemMeta();
 
         lores = new ArrayList<String>();
-        defender_noMeta.setDisplayName(defender_name);
+        defender_noMeta.setDisplayName(Msg.getDefenderName());
         lores.add(accept_no);
         defender_noMeta.setLore(lores);
         defender_no.setItemMeta(defender_noMeta);
@@ -361,7 +370,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
 
         lores = new ArrayList<String>();
         defender_yesMeta.addEnchant(Enchantment.DURABILITY, 1, true);
-        defender_yesMeta.setDisplayName(defender_name);
+        defender_yesMeta.setDisplayName(Msg.getDefenderName());
         for (String s : defender_lore){
             lores.add(s);
         }
@@ -374,7 +383,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemStack alchemist = new ItemStack(Material.BREWING_STAND_ITEM);
         ItemMeta alchemistMeta = alchemist.getItemMeta();
 
-        alchemistMeta.setDisplayName(alchemist_name);
+        alchemistMeta.setDisplayName(Msg.getAlchemistName());
         lores = new ArrayList<String>();
         for (String s : alchemist_lore){
             lores.add(s);
@@ -387,7 +396,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta alchemist_noMeta = alchemist_no.getItemMeta();
 
         lores = new ArrayList<String>();
-        alchemist_noMeta.setDisplayName(alchemist_name);
+        alchemist_noMeta.setDisplayName(Msg.getAlchemistName());
         lores.add(accept_no);
         alchemist_noMeta.setLore(lores);
         alchemist_no.setItemMeta(alchemist_noMeta);
@@ -397,7 +406,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
 
         lores = new ArrayList<String>();
         alchemist_yesMeta.addEnchant(Enchantment.DURABILITY, 1, true);
-        alchemist_yesMeta.setDisplayName(alchemist_name);
+        alchemist_yesMeta.setDisplayName(Msg.getAlchemistName());
         for (String s : alchemist_lore){
             lores.add(s);
         }
@@ -410,8 +419,8 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta alchemist_pexMeta = alchemist_pex.getItemMeta();
 
         lores = new ArrayList<String>();
-        alchemist_pexMeta.setDisplayName(alchemist_name);
-        lores.add(pex_nope + vipdon);
+        alchemist_pexMeta.setDisplayName(Msg.getAlchemistName());
+        lores.add(Msg.getPex_nope() + Msg.getVipdon());
         alchemist_pexMeta.setLore(lores);
         alchemist_pex.setItemMeta(alchemist_pexMeta);
 // Алхимик
@@ -420,7 +429,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemStack teleporter = new ItemStack(Material.ENDER_PEARL);
         ItemMeta teleporterMeta = teleporter.getItemMeta();
 
-        teleporterMeta.setDisplayName(teleporter_name);
+        teleporterMeta.setDisplayName(Msg.getTeleporterName());
         lores = new ArrayList<String>();
         for (String s : teleporter_lore){
             lores.add(s);
@@ -433,7 +442,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta teleporter_noMeta = teleporter_no.getItemMeta();
 
         lores = new ArrayList<String>();
-        teleporter_noMeta.setDisplayName(teleporter_name);
+        teleporter_noMeta.setDisplayName(Msg.getTeleporterName());
         lores.add(accept_no);
         teleporter_noMeta.setLore(lores);
         teleporter_no.setItemMeta(teleporter_noMeta);
@@ -443,7 +452,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
 
         lores = new ArrayList<String>();
         teleporter_yesMeta.addEnchant(Enchantment.DURABILITY, 1, true);
-        teleporter_yesMeta.setDisplayName(teleporter_name);
+        teleporter_yesMeta.setDisplayName(Msg.getTeleporterName());
         for (String s : teleporter_lore){
             lores.add(s);
         }
@@ -456,8 +465,8 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta teleporter_pexMeta = teleporter_pex.getItemMeta();
 
         lores = new ArrayList<String>();
-        teleporter_pexMeta.setDisplayName(teleporter_name);
-        lores.add(pex_nope + platinumdon);
+        teleporter_pexMeta.setDisplayName(Msg.getTeleporterName());
+        lores.add(Msg.getPex_nope() + Msg.getPlatinumdon());
         teleporter_pexMeta.setLore(lores);
         teleporter_pex.setItemMeta(teleporter_pexMeta);
 // Телепортер
@@ -466,7 +475,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemStack resources = new ItemStack(Material.DOUBLE_PLANT);
         ItemMeta resourcesMeta = resources.getItemMeta();
 
-        resourcesMeta.setDisplayName(resources_name);
+        resourcesMeta.setDisplayName(Msg.getResourcesName());
         lores = new ArrayList<String>();
         for (String s : resources_lore){
             lores.add(s);
@@ -479,7 +488,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta resources_noMeta = resources_no.getItemMeta();
 
         lores = new ArrayList<String>();
-        resources_noMeta.setDisplayName(resources_name);
+        resources_noMeta.setDisplayName(Msg.getResourcesName());
         lores.add(accept_no);
         resources_noMeta.setLore(lores);
         resources_no.setItemMeta(resources_noMeta);
@@ -489,7 +498,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
 
         lores = new ArrayList<String>();
         resources_yesMeta.addEnchant(Enchantment.DURABILITY, 1, true);
-        resources_yesMeta.setDisplayName(resources_name);
+        resources_yesMeta.setDisplayName(Msg.getResourcesName());
         for (String s : resources_lore){
             lores.add(s);
         }
@@ -502,8 +511,8 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta resources_pexMeta = resources_pex.getItemMeta();
 
         lores = new ArrayList<String>();
-        resources_pexMeta.setDisplayName(resources_name);
-        lores.add(pex_nope + platinumdon);
+        resources_pexMeta.setDisplayName(Msg.getResourcesName());
+        lores.add(Msg.getPex_nope() + Msg.getPlatinumdon());
         resources_pexMeta.setLore(lores);
         resources_pex.setItemMeta(resources_pexMeta);
 // Легкий старт
@@ -625,10 +634,10 @@ public class InventoryGUI extends JavaPlugin implements Listener {
             case IRON_SWORD:
                 if (player.hasPermission("warrior1")) {
                     player.closeInventory();
-                    player.sendMessage(String.format(kit_already_selected_message, warrior_name));
+                    player.sendMessage(String.format(kit_already_selected_message, Msg.getWarriorName()));
                 }
                 else {
-                    player.sendMessage(bedwars + kit_select_message + warrior_name);
+                    player.sendMessage(bedwars + kit_select_message + Msg.getWarriorName());
                     PermissionsEx.getUser(player).addPermission("bw.kit.warrior");
                     PermissionsEx.getUser(player).removePermission("bw.kit.archer");
                     PermissionsEx.getUser(player).removePermission("bw.kit.miner");
@@ -658,10 +667,10 @@ public class InventoryGUI extends JavaPlugin implements Listener {
             case BOW:
                 if (player.hasPermission("archer1")) {
                     player.closeInventory();
-                    player.sendMessage(String.format(kit_already_selected_message, archer_name));
+                    player.sendMessage(String.format(kit_already_selected_message, Msg.getArcherName()));
                 }
                 else {
-                    player.sendMessage(bedwars + kit_select_message + archer_name);
+                    player.sendMessage(bedwars + kit_select_message + Msg.getArcherName());
                     PermissionsEx.getUser(player).addPermission("bw.kit.archer");
                     PermissionsEx.getUser(player).removePermission("bw.kit.warrior");
                     PermissionsEx.getUser(player).removePermission("bw.kit.miner");
@@ -687,10 +696,10 @@ public class InventoryGUI extends JavaPlugin implements Listener {
             case IRON_PICKAXE:
                 if (player.hasPermission("miner1")) {
                     player.closeInventory();
-                    player.sendMessage(String.format(kit_already_selected_message, miner_name));
+                    player.sendMessage(String.format(kit_already_selected_message, Msg.getMinerName()));
                 }
                 else {
-                    player.sendMessage(bedwars + kit_select_message + miner_name);
+                    player.sendMessage(bedwars + kit_select_message + Msg.getMinerName());
                     PermissionsEx.getUser(player).addPermission("bw.kit.miner");
                     PermissionsEx.getUser(player).removePermission("bw.kit.archer");
                     PermissionsEx.getUser(player).removePermission("bw.kit.warrior");
@@ -716,10 +725,10 @@ public class InventoryGUI extends JavaPlugin implements Listener {
             case SANDSTONE:
                 if (player.hasPermission("builder1")) {
                     player.closeInventory();
-                    player.sendMessage(String.format(kit_already_selected_message, builder_name));
+                    player.sendMessage(String.format(kit_already_selected_message, Msg.getBuilderName()));
                 }
                 else {
-                    player.sendMessage(bedwars + kit_select_message + builder_name);
+                    player.sendMessage(bedwars + kit_select_message + Msg.getBuilderName());
                     PermissionsEx.getUser(player).addPermission("bw.kit.builder");
                     PermissionsEx.getUser(player).removePermission("bw.kit.archer");
                     PermissionsEx.getUser(player).removePermission("bw.kit.miner");
@@ -745,10 +754,10 @@ public class InventoryGUI extends JavaPlugin implements Listener {
             case CHAINMAIL_CHESTPLATE:
                 if (player.hasPermission("tank1")) {
                     player.closeInventory();
-                    player.sendMessage(String.format(kit_already_selected_message, tank_name));
+                    player.sendMessage(String.format(kit_already_selected_message, Msg.getTankName()));
                 }
                 else {
-                    player.sendMessage(bedwars + kit_select_message + tank_name);
+                    player.sendMessage(bedwars + kit_select_message + Msg.getTankName());
                     PermissionsEx.getUser(player).addPermission("bw.kit.tank");
                     PermissionsEx.getUser(player).removePermission("bw.kit.archer");
                     PermissionsEx.getUser(player).removePermission("bw.kit.miner");
@@ -774,10 +783,10 @@ public class InventoryGUI extends JavaPlugin implements Listener {
             case LEATHER_CHESTPLATE:
                 if (player.hasPermission("defender1")) {
                     player.closeInventory();
-                    player.sendMessage(String.format(kit_already_selected_message, defender_name));
+                    player.sendMessage(String.format(kit_already_selected_message, Msg.getDefenderName()));
                 }
                 else {
-                    player.sendMessage(bedwars + kit_select_message + defender_name);
+                    player.sendMessage(bedwars + kit_select_message + Msg.getDefenderName());
                     PermissionsEx.getUser(player).addPermission("bw.kit.defender");
                     PermissionsEx.getUser(player).removePermission("bw.kit.archer");
                     PermissionsEx.getUser(player).removePermission("bw.kit.miner");
@@ -803,10 +812,10 @@ public class InventoryGUI extends JavaPlugin implements Listener {
             case BREWING_STAND_ITEM:
                 if (player.hasPermission("alchemist1")) {
                     player.closeInventory();
-                    player.sendMessage(String.format(kit_already_selected_message, alchemist_name));
+                    player.sendMessage(String.format(kit_already_selected_message, Msg.getAlchemistName()));
                 }
                 else {
-                    player.sendMessage(bedwars + kit_select_message + alchemist_name);
+                    player.sendMessage(bedwars + kit_select_message + Msg.getAlchemistName());
                     PermissionsEx.getUser(player).addPermission("bw.kit.alchemist");
                     PermissionsEx.getUser(player).removePermission("bw.kit.archer");
                     PermissionsEx.getUser(player).removePermission("bw.kit.miner");
@@ -832,10 +841,10 @@ public class InventoryGUI extends JavaPlugin implements Listener {
             case ENDER_PEARL:
                 if (player.hasPermission("teleporter1")) {
                     player.closeInventory();
-                    player.sendMessage(String.format(kit_already_selected_message, teleporter_name));
+                    player.sendMessage(String.format(kit_already_selected_message, Msg.getTeleporterName()));
                 }
                 else {
-                    player.sendMessage(bedwars + kit_select_message + teleporter_name);
+                    player.sendMessage(bedwars + kit_select_message + Msg.getTeleporterName());
                     PermissionsEx.getUser(player).addPermission("bw.kit.teleporter");
                     PermissionsEx.getUser(player).removePermission("bw.kit.archer");
                     PermissionsEx.getUser(player).removePermission("bw.kit.miner");
@@ -861,10 +870,10 @@ public class InventoryGUI extends JavaPlugin implements Listener {
             case DOUBLE_PLANT:
                 if (player.hasPermission("resources1")) {
                     player.closeInventory();
-                    player.sendMessage(String.format(kit_already_selected_message, resources_name));
+                    player.sendMessage(String.format(kit_already_selected_message, Msg.getResourcesName()));
                 }
                 else {
-                    player.sendMessage(bedwars + kit_select_message + resources_name);
+                    player.sendMessage(bedwars + kit_select_message + Msg.getResourcesName());
                     PermissionsEx.getUser(player).addPermission("bw.kit.resources");
                     PermissionsEx.getUser(player).removePermission("bw.kit.archer");
                     PermissionsEx.getUser(player).removePermission("bw.kit.miner");
@@ -901,7 +910,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         DyeColor color = DyeColor.GRAY;
         byte data = 8;
 
-        String warrior_name = this.getConfig().getString("warrior.name");
+//        String Msg.getWarriorName() = this.getConfig().getString("warrior.name");
         List<String> warrior_lore = this.getConfig().getStringList("warrior.lore");
         List<String> archer_lore = this.getConfig().getStringList("archer.lore");
         List<String> miner_lore = this.getConfig().getStringList("miner.lore");
@@ -918,7 +927,8 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemStack warrior_buy = new ItemStack(Material.IRON_SWORD);
         ItemMeta warrior_buyMeta = warrior_buy.getItemMeta();
 
-        warrior_buyMeta.setDisplayName(warrior_name);
+        warrior_buyMeta.setDisplayName(Msg.getWarriorName());
+        player.sendMessage(Msg.getWarriorName());
         warrior_buyMeta.addEnchant(Enchantment.DURABILITY, 1, true);
         for (String s : warrior_lore){
             lores.add(s);
@@ -931,11 +941,11 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta warrior_viewMeta = warrior_view.getItemMeta();
 
         lores = new ArrayList<String>();
-        warrior_viewMeta.setDisplayName(warrior_name);
+        warrior_viewMeta.setDisplayName(Msg.getWarriorName());
         for (String s : warrior_lore){
             lores.add(s);
         }
-        lores.add(cost  + warrior_cost);
+        lores.add(cost  + Msg.getWarriorCost());
         lores.add(buy);
         warrior_viewMeta.setLore(lores);
         warrior_view.setItemMeta(warrior_viewMeta);
@@ -945,7 +955,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemStack archer_buy = new ItemStack(Material.BOW);
         ItemMeta archer_buyMeta = archer_buy.getItemMeta();
 
-        archer_buyMeta.setDisplayName(archer_name);
+        archer_buyMeta.setDisplayName(Msg.getArcherName());
         archer_buyMeta.addEnchant(Enchantment.DURABILITY, 1, true);
         lores = new ArrayList<String>();
         for (String s : archer_lore){
@@ -959,11 +969,11 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta archer_viewMeta = archer_view.getItemMeta();
 
         lores = new ArrayList<String>();
-        archer_viewMeta.setDisplayName(archer_name);
+        archer_viewMeta.setDisplayName(Msg.getArcherName());
         for (String s : warrior_lore){
             lores.add(s);
         }
-        lores.add(cost  + archer_cost);
+        lores.add(cost  + Msg.getArcherCost());
         lores.add(buy);
         archer_viewMeta.setLore(lores);
         archer_view.setItemMeta(archer_viewMeta);
@@ -972,12 +982,12 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta archer_pexMeta = archer_pex.getItemMeta();
 
         lores = new ArrayList<String>();
-        archer_pexMeta.setDisplayName(archer_name);
+        archer_pexMeta.setDisplayName(Msg.getArcherName());
         for (String s : archer_lore){
             lores.add(s);
         }
-        lores.add(cost  + archer_cost);
-        lores.add(pex_nope + platinumdon);
+        lores.add(cost  + Msg.getArcherCost());
+        lores.add(Msg.getPex_nope() + Msg.getPlatinumdon());
         archer_pexMeta.setLore(lores);
         archer_pex.setItemMeta(archer_pexMeta);
 // Лучник
@@ -986,7 +996,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemStack miner_buy = new ItemStack(Material.IRON_PICKAXE);
         ItemMeta miner_buyMeta = miner_buy.getItemMeta();
 
-        miner_buyMeta.setDisplayName(miner_name);
+        miner_buyMeta.setDisplayName(Msg.getMinerName());
         miner_buyMeta.addEnchant(Enchantment.DURABILITY, 1, true);
         lores = new ArrayList<String>();
         for (String s : miner_lore){
@@ -1000,11 +1010,11 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta miner_viewMeta = miner_view.getItemMeta();
 
         lores = new ArrayList<String>();
-        miner_viewMeta.setDisplayName(miner_name);
+        miner_viewMeta.setDisplayName(Msg.getMinerName());
         for (String s : miner_lore){
             lores.add(s);
         }
-        lores.add(cost  + miner_cost);
+        lores.add(cost  + Msg.getMinerCost());
         lores.add(buy);
         miner_viewMeta.setLore(lores);
         miner_view.setItemMeta(miner_viewMeta);
@@ -1014,7 +1024,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemStack builder_buy = new ItemStack(Material.SANDSTONE);
         ItemMeta builder_buyMeta = builder_buy.getItemMeta();
 
-        builder_buyMeta.setDisplayName(builder_name);
+        builder_buyMeta.setDisplayName(Msg.getBuilderName());
         builder_buyMeta.addEnchant(Enchantment.DURABILITY, 1, true);
         lores = new ArrayList<String>();
         for (String s : builder_lore){
@@ -1028,11 +1038,11 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta builder_viewMeta = builder_view.getItemMeta();
 
         lores = new ArrayList<String>();
-        builder_viewMeta.setDisplayName(builder_name);
+        builder_viewMeta.setDisplayName(Msg.getBuilderName());
         for (String s : builder_lore){
             lores.add(s);
         }
-        lores.add(cost  + builder_cost);
+        lores.add(cost  + Msg.getBuilderCost());
         lores.add(buy);
         builder_viewMeta.setLore(lores);
         builder_view.setItemMeta(builder_viewMeta);
@@ -1042,7 +1052,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemStack tank_buy = new ItemStack(Material.CHAINMAIL_CHESTPLATE);
         ItemMeta tank_buyMeta = tank_buy.getItemMeta();
 
-        tank_buyMeta.setDisplayName(tank_name);
+        tank_buyMeta.setDisplayName(Msg.getTankName());
         tank_buyMeta.addEnchant(Enchantment.DURABILITY, 1, true);
         lores = new ArrayList<String>();
         for (String s : tank_lore){
@@ -1056,11 +1066,11 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta tank_viewMeta = tank_view.getItemMeta();
 
         lores = new ArrayList<String>();
-        tank_viewMeta.setDisplayName(tank_name);
+        tank_viewMeta.setDisplayName(Msg.getTankName());
         for (String s : tank_lore){
             lores.add(s);
         }
-        lores.add(cost  + tank_cost);
+        lores.add(cost  + Msg.getTankCost());
         lores.add(buy);
         tank_viewMeta.setLore(lores);
         tank_view.setItemMeta(tank_viewMeta);
@@ -1070,7 +1080,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemStack defender_buy = new ItemStack(Material.LEATHER_CHESTPLATE);
         ItemMeta defender_buyMeta = defender_buy.getItemMeta();
 
-        defender_buyMeta.setDisplayName(defender_name);
+        defender_buyMeta.setDisplayName(Msg.getDefenderName());
         defender_buyMeta.addEnchant(Enchantment.DURABILITY, 1, true);
         lores = new ArrayList<String>();
         for (String s : defender_lore){
@@ -1084,11 +1094,11 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta defender_viewMeta = defender_view.getItemMeta();
 
         lores = new ArrayList<String>();
-        defender_viewMeta.setDisplayName(defender_name);
+        defender_viewMeta.setDisplayName(Msg.getDefenderName());
         for (String s : defender_lore){
             lores.add(s);
         }
-        lores.add(cost  + defender_cost);
+        lores.add(cost  + Msg.getDefenderCost());
         lores.add(buy);
         defender_viewMeta.setLore(lores);
         defender_view.setItemMeta(defender_viewMeta);
@@ -1098,7 +1108,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemStack alchemist_buy = new ItemStack(Material.BREWING_STAND_ITEM);
         ItemMeta alchemist_buyMeta = alchemist_buy.getItemMeta();
 
-        alchemist_buyMeta.setDisplayName(alchemist_name);
+        alchemist_buyMeta.setDisplayName(Msg.getAlchemistName());
         alchemist_buyMeta.addEnchant(Enchantment.DURABILITY, 1, true);
         lores = new ArrayList<String>();
         for (String s : alchemist_lore){
@@ -1112,11 +1122,11 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta alchemist_viewMeta = alchemist_view.getItemMeta();
 
         lores = new ArrayList<String>();
-        alchemist_viewMeta.setDisplayName(alchemist_name);
+        alchemist_viewMeta.setDisplayName(Msg.getAlchemistName());
         for (String s : alchemist_lore){
             lores.add(s);
         }
-        lores.add(cost  + alchemist_cost);
+        lores.add(cost  + Msg.getAlchemistCost());
         lores.add(buy);
         alchemist_viewMeta.setLore(lores);
         alchemist_view.setItemMeta(alchemist_viewMeta);
@@ -1125,12 +1135,12 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta alchemist_pexMeta = alchemist_pex.getItemMeta();
 
         lores = new ArrayList<String>();
-        alchemist_pexMeta.setDisplayName(alchemist_name);
+        alchemist_pexMeta.setDisplayName(Msg.getAlchemistName());
         for (String s : alchemist_lore){
             lores.add(s);
         }
-        lores.add(cost  + alchemist_cost);
-        lores.add(pex_nope + vipdon);
+        lores.add(cost  + Msg.getAlchemistCost());
+        lores.add(Msg.getPex_nope() + Msg.getVipdon());
         alchemist_pexMeta.setLore(lores);
         alchemist_pex.setItemMeta(alchemist_pexMeta);
 // Алхимик
@@ -1139,7 +1149,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemStack teleporter_buy = new ItemStack(Material.ENDER_PEARL);
         ItemMeta teleporter_buyMeta = teleporter_buy.getItemMeta();
 
-        teleporter_buyMeta.setDisplayName(teleporter_name);
+        teleporter_buyMeta.setDisplayName(Msg.getTeleporterName());
         teleporter_buyMeta.addEnchant(Enchantment.DURABILITY, 1, true);
         lores = new ArrayList<String>();
         for (String s : teleporter_lore){
@@ -1153,11 +1163,11 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta teleporter_viewMeta = teleporter_view.getItemMeta();
 
         lores = new ArrayList<String>();
-        teleporter_viewMeta.setDisplayName(teleporter_name);
+        teleporter_viewMeta.setDisplayName(Msg.getTeleporterName());
         for (String s : teleporter_lore){
             lores.add(s);
         }
-        lores.add(cost  + teleporter_cost);
+        lores.add(cost  + Msg.getTeleporterCost());
         lores.add(buy);
         teleporter_viewMeta.setLore(lores);
         teleporter_view.setItemMeta(teleporter_viewMeta);
@@ -1166,12 +1176,12 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta teleporter_pexMeta = teleporter_pex.getItemMeta();
 
         lores = new ArrayList<String>();
-        teleporter_pexMeta.setDisplayName(teleporter_name);
+        teleporter_pexMeta.setDisplayName(Msg.getTeleporterName());
         for (String s : teleporter_lore){
             lores.add(s);
         }
-        lores.add(cost  + teleporter_cost);
-        lores.add(pex_nope + platinumdon);
+        lores.add(cost  + Msg.getTeleporterCost());
+        lores.add(Msg.getPex_nope() + Msg.getPlatinumdon());
         teleporter_pexMeta.setLore(lores);
         teleporter_pex.setItemMeta(teleporter_pexMeta);
 // Телепортер
@@ -1180,7 +1190,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemStack resources_buy = new ItemStack(Material.DOUBLE_PLANT);
         ItemMeta resources_buyMeta = resources_buy.getItemMeta();
 
-        resources_buyMeta.setDisplayName(resources_name);
+        resources_buyMeta.setDisplayName(Msg.getResourcesName());
         resources_buyMeta.addEnchant(Enchantment.DURABILITY, 1, true);
         lores = new ArrayList<String>();
         for (String s : resources_lore){
@@ -1194,11 +1204,11 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta resources_viewMeta = resources_view.getItemMeta();
 
         lores = new ArrayList<String>();
-        resources_viewMeta.setDisplayName(resources_name);
+        resources_viewMeta.setDisplayName(Msg.getResourcesName());
         for (String s : resources_lore){
             lores.add(s);
         }
-        lores.add(cost  + resources_cost);
+        lores.add(cost  + Msg.getResourcesCost());
         lores.add(buy);
         resources_viewMeta.setLore(lores);
         resources_view.setItemMeta(resources_viewMeta);
@@ -1207,12 +1217,12 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta resources_pexMeta = resources_pex.getItemMeta();
 
         lores = new ArrayList<String>();
-        resources_pexMeta.setDisplayName(resources_name);
+        resources_pexMeta.setDisplayName(Msg.getResourcesName());
         for (String s : resources_lore){
             lores.add(s);
         }
-        lores.add(cost  + resources_cost);
-        lores.add(pex_nope + platinumdon);
+        lores.add(cost  + Msg.getResourcesCost());
+        lores.add(Msg.getPex_nope() + Msg.getPlatinumdon());
         resources_pexMeta.setLore(lores);
         resources_pex.setItemMeta(resources_pexMeta);
 // Легкий старт
@@ -1313,10 +1323,10 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         switch (event.getSlot()) {
             case 0:
                 if (!player.isPermissionSet("bw.buykit.warrior")){
-                    if (balance >= warrior_cost) {
+                    if (balance >= Msg.getWarriorCost()) {
                         player.closeInventory();
-                        economy.withdrawPlayer(player, warrior_cost); //depositPlayer - выдать | withdrawPlayer - снять
-                        player.sendMessage(String.format(buy_now, warrior_name));
+                        economy.withdrawPlayer(player, Msg.getWarriorCost()); //depositPlayer - выдать | withdrawPlayer - снять
+                        player.sendMessage(String.format(buy_now, Msg.getWarriorName()));
                         PermissionsEx.getUser(player).addPermission("bw.buykit.warrior");
                     } else {
                         player.closeInventory();
@@ -1324,20 +1334,20 @@ public class InventoryGUI extends JavaPlugin implements Listener {
                     }
                 } else {
                     player.closeInventory();
-                    player.sendMessage(String.format(already_buy, warrior_name));
+                    player.sendMessage(String.format(already_buy, Msg.getWarriorName()));
                 }
                 break;
             case 1:
                 if (!player.isPermissionSet("bw.buykit.archer")){
                     if (!player.isPermissionSet("bw.buykit.d_archer")) {
                         player.closeInventory();
-                        player.sendMessage(bedwars + pex_nope + platinumdon);
+                        player.sendMessage(bedwars + Msg.getPex_nope() + Msg.getPlatinumdon());
                     }
                     else {
-                        if (balance >= archer_cost) {
+                        if (balance >= Msg.getArcherCost()) {
                             player.closeInventory();
-                            economy.withdrawPlayer(player, archer_cost);
-                            player.sendMessage(String.format(buy_now, archer_name));
+                            economy.withdrawPlayer(player, Msg.getArcherCost());
+                            player.sendMessage(String.format(buy_now, Msg.getArcherName()));
                             PermissionsEx.getUser(player).addPermission("bw.buykit.archer");
                         } else {
                             player.closeInventory();
@@ -1346,15 +1356,15 @@ public class InventoryGUI extends JavaPlugin implements Listener {
                     }
                 } else {
                     player.closeInventory();
-                    player.sendMessage(String.format(already_buy, archer_name));
+                    player.sendMessage(String.format(already_buy, Msg.getArcherName()));
                 }
                 break;
             case 2:
                 if (!player.isPermissionSet("bw.buykit.miner")){
-                    if (balance >= miner_cost) {
+                    if (balance >= Msg.getMinerCost()) {
                         player.closeInventory();
-                        economy.withdrawPlayer(player, miner_cost);
-                        player.sendMessage(String.format(buy_now, miner_name));
+                        economy.withdrawPlayer(player, Msg.getMinerCost());
+                        player.sendMessage(String.format(buy_now, Msg.getMinerName()));
                         PermissionsEx.getUser(player).addPermission("bw.buykit.miner");
                     } else {
                         player.closeInventory();
@@ -1362,15 +1372,15 @@ public class InventoryGUI extends JavaPlugin implements Listener {
                     }
                 } else {
                     player.closeInventory();
-                    player.sendMessage(String.format(already_buy, miner_name));
+                    player.sendMessage(String.format(already_buy, Msg.getMinerName()));
                 }
                 break;
             case 3:
                 if (!player.isPermissionSet("bw.buykit.builder")){
-                    if (balance >= builder_cost) {
+                    if (balance >= Msg.getBuilderCost()) {
                         player.closeInventory();
-                        economy.withdrawPlayer(player, builder_cost);
-                        player.sendMessage(String.format(buy_now, builder_name));
+                        economy.withdrawPlayer(player, Msg.getBuilderCost());
+                        player.sendMessage(String.format(buy_now, Msg.getBuilderName()));
                         PermissionsEx.getUser(player).addPermission("bw.buykit.builder");
                     } else {
                         player.closeInventory();
@@ -1378,15 +1388,15 @@ public class InventoryGUI extends JavaPlugin implements Listener {
                     }
                 } else {
                     player.closeInventory();
-                    player.sendMessage(String.format(already_buy, builder_name));
+                    player.sendMessage(String.format(already_buy, Msg.getBuilderName()));
                 }
                 break;
             case 4:
                 if (!player.isPermissionSet("bw.buykit.tank")){
-                    if (balance >= tank_cost) {
+                    if (balance >= Msg.getTankCost()) {
                         player.closeInventory();
-                        economy.withdrawPlayer(player, tank_cost);
-                        player.sendMessage(String.format(buy_now, tank_name));
+                        economy.withdrawPlayer(player, Msg.getTankCost());
+                        player.sendMessage(String.format(buy_now, Msg.getTankName()));
                         PermissionsEx.getUser(player).addPermission("bw.buykit.tank");
                     } else {
                         player.closeInventory();
@@ -1394,15 +1404,15 @@ public class InventoryGUI extends JavaPlugin implements Listener {
                     }
                 } else {
                     player.closeInventory();
-                    player.sendMessage(String.format(already_buy, tank_name));
+                    player.sendMessage(String.format(already_buy, Msg.getTankName()));
                 }
                 break;
             case 5:
                 if (!player.isPermissionSet("bw.buykit.defender")){
-                    if (balance >= defender_cost) {
+                    if (balance >= Msg.getDefenderCost()) {
                         player.closeInventory();
-                        economy.withdrawPlayer(player, defender_cost);
-                        player.sendMessage(String.format(buy_now, defender_name));
+                        economy.withdrawPlayer(player, Msg.getDefenderCost());
+                        player.sendMessage(String.format(buy_now, Msg.getDefenderName()));
                         PermissionsEx.getUser(player).addPermission("bw.buykit.defender");
                     } else {
                         player.closeInventory();
@@ -1410,20 +1420,20 @@ public class InventoryGUI extends JavaPlugin implements Listener {
                     }
                 } else {
                     player.closeInventory();
-                    player.sendMessage(String.format(already_buy, defender_name));
+                    player.sendMessage(String.format(already_buy, Msg.getDefenderName()));
                 }
                 break;
             case 6:
                 if (!player.isPermissionSet("bw.buykit.alchemist")){
                     if (!player.isPermissionSet("bw.buykit.d_alchemist")) {
                         player.closeInventory();
-                        player.sendMessage(bedwars + pex_nope + vipdon);
+                        player.sendMessage(bedwars + Msg.getPex_nope() + Msg.getVipdon());
                     }
                     else {
-                        if (balance >= alchemist_cost) {
+                        if (balance >= Msg.getAlchemistCost()) {
                             player.closeInventory();
-                            economy.withdrawPlayer(player, alchemist_cost);
-                            player.sendMessage(String.format(buy_now, alchemist_name));
+                            economy.withdrawPlayer(player, Msg.getAlchemistCost());
+                            player.sendMessage(String.format(buy_now, Msg.getAlchemistName()));
                             PermissionsEx.getUser(player).addPermission("bw.buykit.alchemist");
                         } else {
                             player.closeInventory();
@@ -1432,20 +1442,20 @@ public class InventoryGUI extends JavaPlugin implements Listener {
                     }
                 } else {
                     player.closeInventory();
-                    player.sendMessage(String.format(already_buy, alchemist_name));
+                    player.sendMessage(String.format(already_buy, Msg.getAlchemistName()));
                 }
                 break;
             case 7:
                 if (!player.isPermissionSet("bw.buykit.teleporter")){
                     if (!player.isPermissionSet("bw.buykit.d_teleporter")) {
                         player.closeInventory();
-                        player.sendMessage(bedwars + pex_nope + platinumdon);
+                        player.sendMessage(bedwars + Msg.getPex_nope() + Msg.getPlatinumdon());
                     }
                     else {
-                        if (balance >= teleporter_cost) {
+                        if (balance >= Msg.getTeleporterCost()) {
                             player.closeInventory();
-                            economy.withdrawPlayer(player, teleporter_cost);
-                            player.sendMessage(String.format(buy_now, teleporter_name));
+                            economy.withdrawPlayer(player, Msg.getTeleporterCost());
+                            player.sendMessage(String.format(buy_now, Msg.getTeleporterName()));
                             PermissionsEx.getUser(player).addPermission("bw.buykit.teleporter");
                         } else {
                             player.closeInventory();
@@ -1454,20 +1464,20 @@ public class InventoryGUI extends JavaPlugin implements Listener {
                     }
                 } else {
                     player.closeInventory();
-                    player.sendMessage(String.format(already_buy, teleporter_name));
+                    player.sendMessage(String.format(already_buy, Msg.getTeleporterName()));
                 }
                 break;
             case 8:
                 if (!player.isPermissionSet("bw.buykit.resources")){
                     if (!player.isPermissionSet("bw.buykit.d_resources")) {
                         player.closeInventory();
-                        player.sendMessage(bedwars + pex_nope + platinumdon);
+                        player.sendMessage(bedwars + Msg.getPex_nope() + Msg.getPlatinumdon());
                     }
                     else {
-                        if (balance >= resources_cost) {
+                        if (balance >= Msg.getResourcesCost()) {
                             player.closeInventory();
-                            economy.withdrawPlayer(player, resources_cost);
-                            player.sendMessage(String.format(buy_now, resources_name));
+                            economy.withdrawPlayer(player, Msg.getResourcesCost());
+                            player.sendMessage(String.format(buy_now, Msg.getResourcesName()));
                             PermissionsEx.getUser(player).addPermission("bw.buykit.resources");
                         } else {
                             player.closeInventory();
@@ -1476,7 +1486,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
                     }
                 } else {
                     player.closeInventory();
-                    player.sendMessage(String.format(already_buy, resources_name));
+                    player.sendMessage(String.format(already_buy, Msg.getResourcesName()));
                 }
                 break;
             default:
@@ -1578,7 +1588,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         // Воин
         ItemStack warrior_item1 = new ItemStack(Material.IRON_SWORD);
         ItemMeta warrior_item1Meta =  warrior_item1.getItemMeta();
-        warrior_item1Meta.setDisplayName(warrior_name);
+        warrior_item1Meta.setDisplayName(Msg.getWarriorName());
         warrior_item1Meta.addEnchant(Enchantment.KNOCKBACK, 1, true);
         warrior_item1.setItemMeta(warrior_item1Meta);
         // Воин
@@ -1588,16 +1598,16 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemMeta archer_item1Meta =  archer_item1.getItemMeta();
         ItemStack archer_item2 = new ItemStack(Material.ARROW, 32);
         ItemMeta archer_item2Meta =  archer_item2.getItemMeta();
-        archer_item1Meta.setDisplayName(archer_name);
+        archer_item1Meta.setDisplayName(Msg.getArcherName());
         archer_item1.setItemMeta(archer_item1Meta);
-        archer_item2Meta.setDisplayName(archer_name);
+        archer_item2Meta.setDisplayName(Msg.getArcherName());
         archer_item2.setItemMeta(archer_item2Meta);
         // Лучник
 
         // Шахтер
         ItemStack miner_item1 = new ItemStack(Material.IRON_PICKAXE);
         ItemMeta miner_item1Meta =  miner_item1.getItemMeta();
-        miner_item1Meta.setDisplayName(miner_name);
+        miner_item1Meta.setDisplayName(Msg.getMinerName());
         miner_item1Meta.addEnchant(Enchantment.DIG_SPEED, 1, true);
         miner_item1.setItemMeta(miner_item1Meta);
         // Шахтер
@@ -1605,57 +1615,57 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         // Строитель
         ItemStack builder_item1 = new ItemStack(Material.SANDSTONE, 64);
         ItemMeta builder_item1Meta =  builder_item1.getItemMeta();
-        builder_item1Meta.setDisplayName(builder_name);
+        builder_item1Meta.setDisplayName(Msg.getBuilderName());
         builder_item1.setItemMeta(builder_item1Meta);
         // Строитель
 
         // Танк
         ItemStack tank_item1 = new ItemStack(Material.LEATHER_HELMET);
         ItemMeta tank_item1Meta =  tank_item1.getItemMeta();
-        tank_item1Meta.setDisplayName(tank_name);
+        tank_item1Meta.setDisplayName(Msg.getTankName());
         tank_item1.setItemMeta(tank_item1Meta);
 
         ItemStack tank_item2 = new ItemStack(Material.CHAINMAIL_CHESTPLATE);
         ItemMeta tank_item2Meta =  tank_item2.getItemMeta();
-        tank_item2Meta.setDisplayName(tank_name);
+        tank_item2Meta.setDisplayName(Msg.getTankName());
         tank_item2Meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1, true);
         tank_item2.setItemMeta(tank_item2Meta);
 
         ItemStack tank_item3 = new ItemStack(Material.LEATHER_LEGGINGS);
         ItemMeta tank_item3Meta =  tank_item3.getItemMeta();
-        tank_item3Meta.setDisplayName(tank_name);
+        tank_item3Meta.setDisplayName(Msg.getTankName());
         tank_item3.setItemMeta(tank_item3Meta);
 
         ItemStack tank_item4 = new ItemStack(Material.LEATHER_BOOTS);
         ItemMeta tank_item4Meta =  tank_item4.getItemMeta();
-        tank_item4Meta.setDisplayName(tank_name);
+        tank_item4Meta.setDisplayName(Msg.getTankName());
         tank_item4.setItemMeta(tank_item4Meta);
         // Танк
 
         // Защитник
         ItemStack defender_item1 = new ItemStack(Material.LEATHER_HELMET);
         ItemMeta defender_item1Meta =  defender_item1.getItemMeta();
-        defender_item1Meta.setDisplayName(defender_name);
+        defender_item1Meta.setDisplayName(Msg.getDefenderName());
         defender_item1.setItemMeta(defender_item1Meta);
 
         ItemStack defender_item2 = new ItemStack(Material.LEATHER_CHESTPLATE);
         ItemMeta defender_item2Meta =  defender_item2.getItemMeta();
-        defender_item2Meta.setDisplayName(defender_name);
+        defender_item2Meta.setDisplayName(Msg.getDefenderName());
         defender_item2.setItemMeta(defender_item2Meta);
 
         ItemStack defender_item3 = new ItemStack(Material.LEATHER_LEGGINGS);
         ItemMeta defender_item3Meta =  defender_item3.getItemMeta();
-        defender_item3Meta.setDisplayName(defender_name);
+        defender_item3Meta.setDisplayName(Msg.getDefenderName());
         defender_item3.setItemMeta(defender_item3Meta);
 
         ItemStack defender_item4 = new ItemStack(Material.LEATHER_BOOTS);
         ItemMeta defender_item4Meta =  defender_item4.getItemMeta();
-        defender_item4Meta.setDisplayName(defender_name);
+        defender_item4Meta.setDisplayName(Msg.getDefenderName());
         defender_item4.setItemMeta(defender_item4Meta);
 
         ItemStack defender_item5 = new ItemStack(Material.WOOD_SWORD);
         ItemMeta defender_item5Meta =  defender_item5.getItemMeta();
-        defender_item5Meta.setDisplayName(defender_name);
+        defender_item5Meta.setDisplayName(Msg.getDefenderName());
         defender_item5.setItemMeta(defender_item4Meta);
         // Защитник
 
@@ -1664,7 +1674,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         potion1.setSplash(true);
         ItemStack potion = potion1.toItemStack(1);
         PotionMeta meta = (PotionMeta) potion.getItemMeta();
-        meta.setDisplayName(alchemist_name);
+        meta.setDisplayName(Msg.getAlchemistName());
         meta.addCustomEffect(new PotionEffect(PotionEffectType.SPEED, 1000, 0), true);
         meta.addCustomEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 1000, 0), true);
         potion.setItemMeta(meta);
@@ -1673,7 +1683,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         // Телепортер
         ItemStack teleporter_item1 = new ItemStack(Material.ENDER_PEARL);
         ItemMeta teleporter_item1Meta =  teleporter_item1.getItemMeta();
-        teleporter_item1Meta.setDisplayName(teleporter_name);
+        teleporter_item1Meta.setDisplayName(Msg.getTeleporterName());
         teleporter_item1.setItemMeta(teleporter_item1Meta);
         // Телепортер
 
@@ -1694,7 +1704,7 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         ItemStack wa = new ItemStack(Material.IRON_SWORD);
         ItemMeta poc1Meta = poc1.getItemMeta();
 
-        poc1Meta.setDisplayName(warrior_name);
+        poc1Meta.setDisplayName(Msg.getWarriorName());
         poc1Meta.addEnchant(Enchantment.KNOCKBACK, 1, true);
         lores.add(arrow + warrior_item1
         poc1Meta.setLore(lores);
@@ -1706,14 +1716,14 @@ public class InventoryGUI extends JavaPlugin implements Listener {
             if (player.getWorld().getName().equalsIgnoreCase(s)) {
                 if (player.hasPermission("bw.kit.warrior")) {
                     getServer().getScheduler().scheduleSyncDelayedTask(this, () -> {
-                        player.sendMessage(bedwars + kit_give + warrior_name);
+                        player.sendMessage(bedwars + kit_give + Msg.getWarriorName());
                         inv.setItemInHand(warrior_item1);
                     }, 10L);
                 }
 
                 if (player.hasPermission("bw.kit.archer")) {
                     getServer().getScheduler().scheduleSyncDelayedTask(this, () -> {
-                        player.sendMessage(bedwars + kit_give + archer_name);
+                        player.sendMessage(bedwars + kit_give + Msg.getArcherName());
                         inv.setItem(0, archer_item1);
                         inv.setItem(1, archer_item2);
                     }, 10L);
@@ -1721,21 +1731,21 @@ public class InventoryGUI extends JavaPlugin implements Listener {
 
                 if (player.hasPermission("bw.kit.miner")) {
                     getServer().getScheduler().scheduleSyncDelayedTask(this, () -> {
-                        player.sendMessage(bedwars + kit_give + miner_name);
+                        player.sendMessage(bedwars + kit_give + Msg.getMinerName());
                         inv.setItemInHand(miner_item1);
                     }, 10L);
                 }
 
                 if (player.hasPermission("bw.kit.builder")) {
                     getServer().getScheduler().scheduleSyncDelayedTask(this, () -> {
-                        player.sendMessage(bedwars + kit_give + builder_name);
+                        player.sendMessage(bedwars + kit_give + Msg.getBuilderName());
                         inv.setItemInHand(builder_item1);
                     }, 10L);
                 }
 
                 if (player.hasPermission("bw.kit.tank")) {
                     getServer().getScheduler().scheduleSyncDelayedTask(this, () -> {
-                        player.sendMessage(bedwars + kit_give + tank_name);
+                        player.sendMessage(bedwars + kit_give + Msg.getTankName());
                         inv.setItem(39, tank_item1);
                         inv.setItem(38, tank_item2);
                         inv.setItem(37, tank_item3);
@@ -1745,15 +1755,16 @@ public class InventoryGUI extends JavaPlugin implements Listener {
 
                 if (player.hasPermission("bw.kit.defender")) {
                     getServer().getScheduler().scheduleSyncDelayedTask(this, () -> {
-                        player.sendMessage(bedwars + kit_give + defender_name);
+                        player.sendMessage(bedwars + kit_give + Msg.getDefenderName());
                         inv.setItem(39, defender_item1);
                         inv.setItem(38, defender_item2);
                         inv.setItem(37, defender_item3);
                         inv.setItem(36, defender_item4);
+                        inv.setItemInHand(defender_item5);
                     }, 10L);
                 } else if (player.hasPermission("bw.kit.alchemist")) {
                     getServer().getScheduler().scheduleSyncDelayedTask(this, () -> {
-                        player.sendMessage(bedwars + kit_give + alchemist_name);
+                        player.sendMessage(bedwars + kit_give + Msg.getAlchemistName());
                         inv.setItem(0, potion);
                     }, 10L);
                 } else if (player.hasPermission("bw.kit.teleporter")) {
@@ -1765,14 +1776,14 @@ public class InventoryGUI extends JavaPlugin implements Listener {
 
                             player.sendMessage(bedwars + teleporter_countdown3);
                             getServer().getScheduler().scheduleSyncDelayedTask(this, () -> {
-                                player.sendMessage(bedwars + kit_give + teleporter_name);
+                                player.sendMessage(bedwars + kit_give + Msg.getTeleporterName());
                                 inv.setItemInHand(teleporter_item1);
                             }, 300L);
                         }, 400L);
                     }, 600L);
                 } else if (player.hasPermission("bw.kit.resources")) {
                     getServer().getScheduler().scheduleSyncDelayedTask(this, () -> {
-                        player.sendMessage(bedwars + kit_give + resources_name);
+                        player.sendMessage(bedwars + kit_give + Msg.getResourcesName());
                         inv.setItem(39, tank_item1);
                         inv.setItem(1, archer_item2);
                     }, 10L);
@@ -1782,5 +1793,4 @@ public class InventoryGUI extends JavaPlugin implements Listener {
         //World world = player.getWorld();
         //player.sendMessage(world.getName());
     }
-    //123asdasd
 }
